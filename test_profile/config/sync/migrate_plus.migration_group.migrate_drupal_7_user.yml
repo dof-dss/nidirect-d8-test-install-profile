@@ -1,0 +1,14 @@
+uuid: 662e09bb-923b-47ea-ae53-1f4144070804
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 4hGNWU53vZCd615cRek6INdaoyyGjB4Vlvd4bTbq5TY
+id: migrate_drupal_7_user
+label: 'NIDirect - Users'
+description: 'Drupal 7 users, roles and permissions'
+source_type: 'Drupal 7'
+module: null
+shared_configuration:
+  source:
+    key: drupal7db
