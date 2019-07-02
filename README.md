@@ -8,7 +8,7 @@ This repository should be cloned as follows inside the /web directory of a worki
 
  git clone git@svegit01.thestables.net:dss/nidirect-d8-test-install-profile.git profiles
  
-(after doing this, you should have a 'web/profile/test_profile' directory in your project)
+(after doing this, you should have a 'web/profiles/test_profile' directory in your project)
 
 ## Updating the install profile
 
