@@ -30,3 +30,11 @@ After doing this, edit profiles/test_profile/config/sync/core.extension.yml and 
     default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc
 
 Finally, delete the memcache_admin.settings.yml file from from profiles/test_profile/config/sync
+
+## Running unit tests
+
+First, ensure that your SIMPLETEST_BASE_URL is set to ‘http://localhost’ in the lando config/phpunit.lando.xml file.
+
+From inside lando (ssh’d in) in the directory /app/drupal8/web/core
+run this:
+../../vendor/bin/phpunit ../modules/custom/nidirect-site-modules/nidirect_common/tests/src/Functional/DrivingInstructorTest.php
