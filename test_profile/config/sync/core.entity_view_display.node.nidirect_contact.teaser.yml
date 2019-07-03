@@ -28,7 +28,6 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
-  field_address: true
   field_contact_additional_info: true
   field_contact_address_01: true
   field_contact_address_02: true
@@ -49,7 +48,6 @@ hidden:
   field_email_address: true
   field_livelink_id: true
   field_livelink_url: true
-  field_location: true
   field_meta_tags: true
   field_site_themes: true
   field_summary: true
