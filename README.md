@@ -33,7 +33,7 @@ Finally, delete the memcache_admin.settings.yml file from from profiles/test_pro
 
 ## Running unit tests
 
-First, ensure that your SIMPLETEST_BASE_URL is set to ‘http://localhost’ in the lando 
+First, ensure that your SIMPLETEST_BASE_URL is set to the local site URL in the lando 
 config/phpunit.lando.xml file (this should be set automatically by the Lando build scripts, 
 but is worth checking if you are having problems)
 
