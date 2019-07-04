@@ -33,8 +33,10 @@ Finally, delete the memcache_admin.settings.yml file from from profiles/test_pro
 
 ## Running unit tests
 
-First, ensure that your SIMPLETEST_BASE_URL is set to ‘http://localhost’ in the lando config/phpunit.lando.xml file.
+First, ensure that your SIMPLETEST_BASE_URL is set to ‘http://localhost’ in the lando 
+config/phpunit.lando.xml file (this should be set automatically by the Lando build scripts, 
+but is worth checking if you are having problems)
 
 From inside lando (ssh’d in) in the directory /app/drupal8/web/core
 run this:
-../../vendor/bin/phpunit ../modules/custom/nidirect-site-modules/nidirect_common/tests/src/Functional/DrivingInstructorTest.php
+../../vendor/bin/phpunit ../modules/custom/nidirect_common/tests/src/Functional/DrivingInstructorTest.php
