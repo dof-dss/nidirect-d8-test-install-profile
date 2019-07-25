@@ -1,5 +1,5 @@
 {
-    "name": "nics/nidirect-d8-test-install-profile",
+    "name": "dof-dss/nidirect-d8-test-install-profile",
     "description": "Unit test install profile for NI Direct",
     "type": "drupal-module",
     "authors": [
