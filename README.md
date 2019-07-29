@@ -14,7 +14,7 @@ This repository should be cloned as follows inside the /web/profiles directory o
 
 Simply export your current config to the install profile directory like this:
 
- lando drush config-export --destination=profiles/test_profile/config/sync
+ lando drush config-export --destination=profiles/custom/test_profile/config/sync
  
 After doing this, edit profiles/test_profile/config/sync/core.extension.yml and make sure that the install profile is set to 'test_profile' rather than 'standard'. Note that this may involve making two changes towards the bottom of the file, as shown in the following sampel from the end of the core.extension.yml file:
 
