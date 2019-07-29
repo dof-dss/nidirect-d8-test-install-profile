@@ -28,6 +28,11 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   field_enable_toc:
     type: boolean
     weight: 3
@@ -76,3 +81,5 @@ content:
     third_party_settings: {  }
 hidden:
   field_photo: true
+  langcode: true
+  search_api_excerpt: true

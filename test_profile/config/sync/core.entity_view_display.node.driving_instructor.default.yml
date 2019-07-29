@@ -23,6 +23,11 @@ targetEntityType: node
 bundle: driving_instructor
 mode: default
 content:
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   field_contact_phone:
     type: string
     weight: 3
@@ -110,4 +115,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  langcode: true
+  search_api_excerpt: true
