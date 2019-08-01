@@ -9,7 +9,6 @@ dependencies:
     - field.field.node.umbrella_body.field_contact_website
     - field.field.node.umbrella_body.field_district
     - field.field.node.umbrella_body.field_email_address
-    - field.field.node.umbrella_body.field_livelink_url
     - field.field.node.umbrella_body.field_location
     - field.field.node.umbrella_body.field_meta_tags
     - field.field.node.umbrella_body.field_ub_all_ni
@@ -40,6 +39,11 @@ content:
     label: hidden
     type: text_default
     weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  content_moderation_control:
+    weight: -20
     settings: {  }
     third_party_settings: {  }
     region: content
@@ -84,18 +88,6 @@ content:
     region: content
     label: above
     settings: {  }
-    third_party_settings: {  }
-  field_livelink_url:
-    type: link
-    weight: 2
-    region: content
-    label: above
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
     third_party_settings: {  }
   field_location:
     weight: 26
@@ -215,4 +207,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  langcode: true
+  search_api_excerpt: true

@@ -46,6 +46,11 @@ content:
       view_mode: default
       pager_id: 0
     third_party_settings: {  }
+  content_moderation_control:
+    weight: -20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   field_additional_info:
     type: text_default
     weight: 9
@@ -132,4 +137,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  langcode: true
+  search_api_excerpt: true
