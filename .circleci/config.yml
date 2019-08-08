@@ -10,20 +10,12 @@ jobs:
       - image: circleci/php:7.2.20-apache-browsers
     steps:
       - checkout
-      - restore_cache:
-          keys:
-          - composer-{{ checksum "composer.json" }}
       - run:
           name: Fetch phpcs and dependencies
           command: |
-            composer require drupal/coder --no-interaction --optimize-autoloader
+            composer install --no-interaction --optimize-autoloader
             # Move vendor directory up a level as we don't want to code-check all of that.
             mv vendor ../
-      - save_cache:
-          key: composer-{{ checksum "composer.json" }}
-          paths:
-            - $HOME/.composer/cache
-            - vendor
       - run:
           name: Fetch phpcs convenience script
           command: |
@@ -46,9 +38,6 @@ jobs:
               composer global require hirak/prestissimo
       - checkout:
           path: /home/circleci/nidirect-d8-mig-mods
-      - restore_cache:
-          keys:
-          - composer-{{ checksum "nidirect-d8-mig-mods/composer.json" }}
       - run:
           name: Fetch latest Drupal version
           command: |
@@ -62,11 +51,6 @@ jobs:
           command: |
             cd ${CIRCLE_WORKING_DIRECTORY}
             composer require --dev mglaman/drupal-check --no-interaction --optimize-autoloader
-      - save_cache:
-          key: composer-{{ checksum "nidirect-d8-mig-mods/composer.json" }}
-          paths:
-            - $HOME/.composer/cache
-            - vendor
       - run:
          name: Deprecated code check
          command: |
