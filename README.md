@@ -6,7 +6,7 @@ Drupal source code for the NIDirect website: https://www.nidirect.gov.uk.
 
 This repository should be cloned as follows inside the /web directory of a working Drupal 8 NIDirect site:
 
- git clone git@svegit01.thestables.net:dss/nidirect-d8-test-install-profile.git profiles
+`git clone git@svegit01.thestables.net:dss/nidirect-d8-test-install-profile.git profiles`
  
 (after doing this, you should have a 'web/profiles/test_profile' directory in your project)
 
@@ -14,10 +14,11 @@ This repository should be cloned as follows inside the /web directory of a worki
 
 Simply export your current config to the install profile directory like this:
 
- lando drush config-export --destination=profiles/test_profile/config/sync
+`lando drush config-export --destination=profiles/test_profile/config/sync`
  
 After doing this, edit profiles/test_profile/config/sync/core.extension.yml and make sure that the install profile is set to 'test_profile' rather than 'standard'. Note that this may involve making two changes towards the bottom of the file, as shown in the following sampel from the end of the core.extension.yml file:
 
+```
   test_profile: 1000
   theme:
     stable: 0
@@ -28,15 +29,16 @@ After doing this, edit profiles/test_profile/config/sync/core.extension.yml and 
   profile: test_profile
   _core:
     default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc
+```
 
-Finally, delete the memcache_admin.settings.yml file from from profiles/test_profile/config/sync
+Finally, delete the `memcache_admin.settings.yml` file from from `profiles/test_profile/config/sync`
 
 ## Running unit tests
 
 First, ensure that your SIMPLETEST_BASE_URL is set to the local site URL in the lando 
-config/phpunit.lando.xml file (this should be set automatically by the Lando build scripts, 
+`config/phpunit.lando.xml` file (this should be set automatically by the Lando build scripts, 
 but is worth checking if you are having problems)
 
-From inside lando (ssh’d in) in the directory /app/drupal8/web/core
-run this:
-../../vendor/bin/phpunit ../modules/custom/nidirect_common/tests/src/Functional/DrivingInstructorTest.php
+From inside lando (ssh’d in) in the directory `/app/drupal8/web/core` run this:
+
+`../../vendor/bin/phpunit ../modules/custom/nidirect_common/tests/src/Functional/DrivingInstructorTest.php`
