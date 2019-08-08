@@ -44,21 +44,16 @@ jobs:
               sudo apt-get install -y libpng-dev
               sudo docker-php-ext-install gd
               composer global require hirak/prestissimo
-      - restore_cache:
-          keys:
-          - composer-{{ checksum "composer.json" }}
       - checkout:
           path: /home/circleci/nidirect-d8-mig-mods
+      - restore_cache:
+          keys:
+          - composer-{{ checksum "nidirect-d8-mig-mods/composer.json" }}
       - run:
           name: Fetch latest Drupal version
           command: |
             composer create-project drupal-composer/drupal-project:8.x-dev ${CIRCLE_WORKING_DIRECTORY} --no-interaction
             mkdir -p ${CIRCLE_WORKING_DIRECTORY}/web/profiles/custom
-      - save_cache:
-          key: composer-{{ checksum "composer.json" }}
-          paths:
-            - $HOME/.composer/cache
-            - vendor
       - run:
           name: Move custom code into position
           command: mv /home/circleci/nidirect-d8-mig-mods ${CIRCLE_WORKING_DIRECTORY}/web/profiles/custom
@@ -67,6 +62,11 @@ jobs:
           command: |
             cd ${CIRCLE_WORKING_DIRECTORY}
             composer require --dev mglaman/drupal-check --no-interaction --optimize-autoloader
+      - save_cache:
+          key: composer-{{ checksum "nidirect-d8-mig-mods/composer.json" }}
+          paths:
+            - $HOME/.composer/cache
+            - vendor
       - run:
          name: Deprecated code check
          command: |
