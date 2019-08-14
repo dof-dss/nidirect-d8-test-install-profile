@@ -30,11 +30,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
-  content_moderation_control:
-    weight: -20
-    settings: {  }
-    third_party_settings: {  }
-    region: content
   field_additional_info:
     type: text_default
     weight: 4
