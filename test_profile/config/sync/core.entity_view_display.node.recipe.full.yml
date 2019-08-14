@@ -34,11 +34,6 @@ targetEntityType: node
 bundle: recipe
 mode: full
 content:
-  content_moderation_control:
-    weight: -20
-    settings: {  }
-    third_party_settings: {  }
-    region: content
   field_meta_tags:
     weight: 17
     label: above
