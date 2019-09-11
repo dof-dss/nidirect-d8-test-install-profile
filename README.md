@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/dof-dss/nidirect-d8-test-install-profile.svg?style=svg)](https://circleci.com/gh/dof-dss/nidirect-d8-test-install-profile)
+
 # NIDirect Drupal 8 Test Install Profile
 
 Drupal source code for the NIDirect website: https://www.nidirect.gov.uk.
