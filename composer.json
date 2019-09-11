@@ -4,5 +4,8 @@
     "type": "drupal-module",
     "require": {
         "composer/installers": "^1.6"
+    },
+    "require-dev": {
+        "drupal/coder": "^8.3"
     }
 }

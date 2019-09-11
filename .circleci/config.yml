@@ -19,7 +19,7 @@ jobs:
       - run:
           name: Fetch phpcs convenience script
           command: |
-            curl https://raw.githubusercontent.com/dof-dss/nidirect-drupal/master/phpcs.sh -o /home/circleci/project/phpcs.sh
+            curl https://raw.githubusercontent.com/dof-dss/nidirect-drupal/development/phpcs.sh -o /home/circleci/project/phpcs.sh
             chmod +x /home/circleci/project/phpcs.sh
       - run:
           name: PHPCS static analysis
@@ -42,10 +42,10 @@ jobs:
           name: Fetch latest Drupal version
           command: |
             composer create-project drupal-composer/drupal-project:8.x-dev ${CIRCLE_WORKING_DIRECTORY} --no-interaction
-            mkdir -p ${CIRCLE_WORKING_DIRECTORY}/web/profiles/custom
+            mkdir -p ${CIRCLE_WORKING_DIRECTORY}/web/profiles/custom/test_profile
       - run:
           name: Move custom code into position
-          command: mv /home/circleci/nidirect-d8-mig-mods ${CIRCLE_WORKING_DIRECTORY}/web/profiles/custom
+          command: mv /home/circleci/nidirect-d8-mig-mods ${CIRCLE_WORKING_DIRECTORY}/web/profiles/custom/test_profile
       - run:
           name: Fetch drupal-check and any dependencies
           command: |
@@ -54,11 +54,11 @@ jobs:
       - run:
          name: Deprecated code check
          command: |
-            ${CIRCLE_WORKING_DIRECTORY}/vendor/bin/drupal-check ${CIRCLE_WORKING_DIRECTORY}/web/profiles/custom
+            ${CIRCLE_WORKING_DIRECTORY}/vendor/bin/drupal-check ${CIRCLE_WORKING_DIRECTORY}/web/profiles/custom/test_profile
 
 workflows:
   version: 2
-  static-analysis:
+  static_analysis:
     jobs:
       - coding_standards
       - deprecated_code
