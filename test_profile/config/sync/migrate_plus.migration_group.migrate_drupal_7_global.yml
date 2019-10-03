@@ -1,0 +1,14 @@
+uuid: 575d78f6-4679-4c1a-9a62-0488114455bd
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: f5F-Bw-KRAC_kQzatNs1ef46sL7NGiSMNIQyICrjtj0
+id: migrate_drupal_7_global
+label: 'NIDirect - Global'
+description: 'Drupal 7 sitewide settings'
+source_type: 'Drupal 7'
+module: null
+shared_configuration:
+  source:
+    key: drupal7db

@@ -1,0 +1,10 @@
+uuid: e40cec32-00ed-4db4-b131-5442eb314734
+langcode: en
+status: true
+dependencies: {  }
+id: migrate_nidirect_health_condition_node
+label: migrate_nidirect_health_condition_node
+description: ''
+source_type: null
+module: null
+shared_configuration: null

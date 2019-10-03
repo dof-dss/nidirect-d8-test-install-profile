@@ -1,0 +1,14 @@
+uuid: 3f1e3f52-3876-4f7a-97e7-a3431910bae1
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: yuTOsvvpHKir0iaqfJ4c36uqhQ9tKtnoNpTiJ_rifmc
+id: migrate_nidirect_node_article
+label: 'NIDirect - Article Nodes'
+description: 'Drupal 7 Article nodes'
+source_type: 'Drupal 7'
+module: null
+shared_configuration:
+  source:
+    key: drupal7db

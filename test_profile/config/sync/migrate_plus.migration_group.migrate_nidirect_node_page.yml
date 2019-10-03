@@ -1,0 +1,14 @@
+uuid: 90df7dda-70e3-4819-895a-3dc2b6c0be74
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: ugkIGW7dRP2DFFcIX2wFd64SPtmM18wVbyxND8On0r8
+id: migrate_nidirect_node_page
+label: 'NIDirect - Page nodes'
+description: 'Drupal 7 Page nodes'
+source_type: 'Drupal 7'
+module: null
+shared_configuration:
+  source:
+    key: drupal7db

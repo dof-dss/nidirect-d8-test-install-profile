@@ -1,0 +1,14 @@
+uuid: bc8d6823-10a9-45a4-89df-07f2c9d62362
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 20Rbxisyv2l-QRL3fKhOfwEXejjlvhrDhUREqT0_4xw
+id: migrate_nidirect_node_umbrella_body
+label: 'NIDirect - Article Nodes'
+description: 'Drupal 7 Article nodes'
+source_type: 'Drupal 7'
+module: null
+shared_configuration:
+  source:
+    key: drupal7db
