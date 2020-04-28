@@ -7,6 +7,10 @@ label: 'apps user'
 weight: 30
 is_admin: null
 permissions:
+  - 'access content overview'
   - 'access toolbar'
+  - 'administer gp entities'
   - 'edit weather stations'
   - 'use editorial transition create_new_draft'
+  - 'use moderation sidebar'
+  - 'use text format basic_html'

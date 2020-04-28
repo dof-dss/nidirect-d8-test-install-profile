@@ -4,16 +4,17 @@ status: true
 dependencies:
   config:
     - field.field.node.news.body
-    - field.field.node.news.field_enable_toc
     - field.field.node.news.field_meta_tags
     - field.field.node.news.field_photo
     - field.field.node.news.field_published_date
+    - field.field.node.news.field_related_info
     - field.field.node.news.field_summary
     - field.field.node.news.field_teaser
+    - field.field.node.news.field_toc_enable
     - node.type.news
   module:
     - datetime
-    - metatag
+    - link
     - text
     - user
 id: node.news.default
@@ -28,53 +29,52 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
-  field_enable_toc:
-    type: boolean
+  field_photo:
     weight: 3
-    region: content
     label: above
     settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
+      link: true
     third_party_settings: {  }
-  field_meta_tags:
-    weight: 5
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: metatag_empty_formatter
+    type: entity_reference_label
     region: content
   field_published_date:
     type: datetime_default
     weight: 0
     region: content
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: medium_date
+    third_party_settings: {  }
+  field_related_info:
+    weight: 4
     label: above
     settings:
-      format_type: medium
-      timezone_override: ''
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
     third_party_settings: {  }
+    type: link
+    region: content
   field_summary:
-    weight: 6
-    label: above
+    weight: 1
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
     region: content
-  field_teaser:
-    type: string
-    weight: 1
-    region: content
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-  links:
-    weight: 4
-    region: content
+  toc_display:
+    weight: -10
     settings: {  }
     third_party_settings: {  }
+    region: content
 hidden:
-  field_photo: true
+  content_moderation_control: true
+  field_meta_tags: true
+  field_teaser: true
+  field_toc_enable: true
   langcode: true
+  links: true
   search_api_excerpt: true

@@ -1,0 +1,12 @@
+uuid: 0ab025dc-2395-4596-983b-7d96832286cd
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: ax97JXrsnJlE0nqKcn_hKKa6cupvhg3xRecwov-s0Ds
+id: money_advice_service_rss
+label: 'NIDirect - Money Advice Service RSS'
+description: 'Money Advice Service articles'
+source_type: XML
+module: null
+shared_configuration: null

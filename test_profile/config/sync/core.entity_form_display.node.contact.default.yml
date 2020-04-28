@@ -6,35 +6,35 @@ dependencies:
     - field.field.node.contact.body
     - field.field.node.contact.field_address
     - field.field.node.contact.field_contact_additional_info
-    - field.field.node.contact.field_contact_benefits_no
     - field.field.node.contact.field_contact_category
-    - field.field.node.contact.field_contact_emp_svcs_no
-    - field.field.node.contact.field_contact_fax
     - field.field.node.contact.field_contact_group
     - field.field.node.contact.field_contact_hours
-    - field.field.node.contact.field_contact_phone
-    - field.field.node.contact.field_contact_sms
     - field.field.node.contact.field_contact_website
     - field.field.node.contact.field_email_address
-    - field.field.node.contact.field_enable_toc
     - field.field.node.contact.field_location
     - field.field.node.contact.field_meta_tags
     - field.field.node.contact.field_next_audit_due
+    - field.field.node.contact.field_related_info
     - field.field.node.contact.field_site_themes
     - field.field.node.contact.field_summary
     - field.field.node.contact.field_supplementary_contact
+    - field.field.node.contact.field_telephone
     - node.type.contact
-    - workflows.workflow.editorial
+    - workflows.workflow.nics_editorial_workflow
   module:
     - address
     - content_moderation
     - datetime
     - field_group
-    - geolocation
+    - geolocation_address
+    - geolocation_google_maps
     - link
     - metatag
     - path
+    - scheduler
+    - scheduler_content_moderation_integration
     - shs
+    - telephone_plus
     - text
 third_party_settings:
   field_group:
@@ -45,38 +45,36 @@ third_party_settings:
         - body
         - field_contact_additional_info
       parent_name: ''
-      weight: -1
+      weight: 8
       format_type: details
       format_settings:
-        open: false
+        open: true
         required_fields: true
         classes: ''
         id: ''
       label: General
+      region: content
     group_detail:
       children:
         - field_contact_category
         - field_contact_group
-        - field_location
         - field_address
+        - field_location
         - field_email_address
+        - field_telephone
         - field_contact_website
-        - field_contact_phone
-        - field_contact_benefits_no
-        - field_contact_emp_svcs_no
-        - field_contact_fax
-        - field_contact_sms
         - field_contact_hours
         - field_site_themes
       parent_name: ''
-      weight: 0
+      weight: 9
       format_type: details
       format_settings:
-        open: false
+        open: true
         required_fields: true
         classes: ''
         id: ''
       label: Detail
+      region: content
 id: node.contact.default
 targetEntityType: node
 bundle: contact
@@ -84,39 +82,32 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 6
+    weight: 5
     settings:
       rows: 9
       summary_rows: 3
       placeholder: ''
+      show_summary: false
     third_party_settings: {  }
     region: content
   created:
     type: datetime_timestamp
-    weight: 21
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
   field_address:
-    weight: 8
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     type: address_default
     region: content
   field_contact_additional_info:
     type: text_textarea
-    weight: 17
+    weight: 6
     region: content
     settings:
       rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-  field_contact_benefits_no:
-    type: string_textfield
-    weight: 12
-    region: content
-    settings:
-      size: 60
       placeholder: ''
     third_party_settings: {  }
   field_contact_category:
@@ -124,22 +115,6 @@ content:
     weight: 1
     region: content
     settings: {  }
-    third_party_settings: {  }
-  field_contact_emp_svcs_no:
-    type: string_textfield
-    weight: 13
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_contact_fax:
-    type: string_textfield
-    weight: 14
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
     third_party_settings: {  }
   field_contact_group:
     type: entity_reference_autocomplete
@@ -149,34 +124,19 @@ content:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
+      match_limit: 10
     third_party_settings: {  }
   field_contact_hours:
     type: text_textarea
-    weight: 16
+    weight: 8
     region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-  field_contact_phone:
-    type: string_textfield
-    weight: 11
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_contact_sms:
-    type: string_textfield
-    weight: 15
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_contact_website:
     type: link_default
-    weight: 10
+    weight: 7
     region: content
     settings:
       placeholder_url: ''
@@ -184,69 +144,347 @@ content:
     third_party_settings: {  }
   field_email_address:
     type: email_default
-    weight: 9
+    weight: 5
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_enable_toc:
-    weight: 51
-    settings:
-      display_label: true
-    third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
   field_location:
-    weight: 7
+    weight: 4
     settings:
-      default_longitude: ''
-      default_latitude: ''
-      populate_address_field: '1'
-      target_address_field: field_address
+      centre:
+        client_location:
+          weight: 0
+          enable: false
+          map_center_id: client_location
+        fixed_boundaries:
+          settings:
+            north: ''
+            east: ''
+            south: ''
+            west: ''
+          weight: 0
+          enable: false
+          map_center_id: fixed_boundaries
+        fit_bounds:
+          enable: true
+          settings:
+            min_zoom: null
+            reset_zoom: false
+          weight: 0
+          map_center_id: fit_bounds
+        fixed_value:
+          settings:
+            latitude: null
+            longitude: null
+            location_option_id: fixed_value
+          weight: 0
+          enable: false
+          map_center_id: location_plugins
+        ipstack:
+          settings:
+            access_key: ''
+            location_option_id: ipstack
+          weight: 0
+          enable: false
+          map_center_id: location_plugins
+        freeogeoip:
+          weight: 0
+          enable: false
+          map_center_id: location_plugins
+          settings:
+            location_option_id: freeogeoip
+      auto_client_location_marker: '1'
       google_map_settings:
         height: 400px
         width: 100%
         type: ROADMAP
-        zoom: '10'
+        zoom: 10
         maxZoom: 18
         minZoom: 0
-        mapTypeControl: 1
-        streetViewControl: 1
-        zoomControl: 1
-        scrollwheel: 1
         gestureHandling: auto
-        draggable: 1
-        style: ''
-        info_auto_display: 1
-        marker_icon_path: ''
-        disableAutoPan: 1
-        rotateControl: 0
-        fullscreenControl: 0
-        preferScrollingToZooming: 0
-        disableDoubleClickZoom: 0
-      auto_client_location: '0'
-      auto_client_location_marker: '0'
-      explicite_actions_address_field: '0'
+        map_features:
+          marker_infobubble:
+            weight: 0
+            settings:
+              close_other: 1
+              close_button_src: ''
+              shadow_style: 0
+              padding: 10
+              border_radius: 8
+              border_width: 2
+              border_color: '#039be5'
+              background_color: '#fff'
+              min_width: null
+              max_width: 550
+              min_height: null
+              max_height: null
+              arrow_style: 2
+              arrow_position: 30
+              arrow_size: 10
+              close_button: 0
+            enabled: false
+          control_streetview:
+            weight: 0
+            settings:
+              position: TOP_LEFT
+              behavior: default
+            enabled: false
+          control_zoom:
+            enabled: true
+            weight: 0
+            settings:
+              position: RIGHT_CENTER
+              behavior: default
+              style: LARGE
+          map_restriction:
+            weight: 0
+            settings:
+              north: ''
+              south: ''
+              east: ''
+              west: ''
+              strict: true
+            enabled: false
+          map_type_style:
+            weight: 0
+            settings:
+              style: '[]'
+            enabled: false
+          marker_clusterer:
+            weight: 0
+            settings:
+              image_path: ''
+              styles: ''
+              zoom_on_click: true
+              grid_size: 60
+              minimum_cluster_size: 2
+              max_zoom: 15
+              average_center: false
+            enabled: false
+          marker_icon:
+            weight: 0
+            settings:
+              marker_icon_path: ''
+              anchor:
+                x: 0
+                'y': 0
+              origin:
+                x: 0
+                'y': 0
+              label_origin:
+                x: 0
+                'y': 0
+              size:
+                width: null
+                height: null
+              scaled_size:
+                width: null
+                height: null
+            enabled: false
+          marker_infowindow:
+            enabled: true
+            weight: 0
+            settings:
+              info_window_solitary: true
+              disable_auto_pan: true
+              max_width: null
+              info_auto_display: false
+          control_recenter:
+            weight: 0
+            settings:
+              position: TOP_LEFT
+            enabled: false
+          marker_label:
+            weight: 0
+            settings:
+              color: ''
+              font_family: ''
+              font_size: ''
+              font_weight: ''
+            enabled: false
+          marker_opacity:
+            weight: 0
+            settings:
+              opacity: !!float 1
+            enabled: false
+          geolocation_marker_scroll_to_id:
+            weight: 0
+            settings:
+              scroll_target_id: ''
+            enabled: false
+          marker_zoom_to_animate:
+            weight: 0
+            settings:
+              marker_zoom_anchor_id: ''
+            enabled: false
+          spiderfying:
+            weight: 0
+            settings:
+              spiderfiable_marker_path: /modules/contrib/geolocation/modules/geolocation_google_maps/images/marker-plus.svg
+              markersWontMove: true
+              keepSpiderfied: true
+              nearbyDistance: 20
+              circleSpiralSwitchover: 9
+              circleFootSeparation: 23
+              spiralFootSeparation: 26
+              spiralLengthStart: 11
+              spiralLengthFactor: 4
+              legWeight: 1.5
+              markersWontHide: false
+              ignoreMapClick: false
+            enabled: false
+          google_maps_layer_traffic:
+            weight: 0
+            enabled: false
+          control_rotate:
+            weight: 0
+            settings:
+              position: TOP_LEFT
+              behavior: default
+            enabled: false
+          control_maptype:
+            enabled: true
+            weight: 0
+            settings:
+              position: RIGHT_BOTTOM
+              behavior: default
+              style: DEFAULT
+          context_popup:
+            weight: 0
+            settings:
+              content:
+                value: ''
+                format: basic_html
+            enabled: false
+          google_maps_layer_bicycling:
+            weight: 0
+            enabled: false
+          client_location_indicator:
+            weight: 0
+            enabled: false
+          map_disable_tilt:
+            weight: 0
+            enabled: false
+          control_locate:
+            enabled: true
+            weight: 0
+            settings:
+              position: TOP_LEFT
+          map_disable_poi:
+            weight: 0
+            enabled: false
+          map_disable_user_interaction:
+            weight: 0
+            enabled: false
+          drawing:
+            weight: 0
+            settings:
+              strokeColor: '#FF0000'
+              strokeOpacity: '0.8'
+              strokeWeight: '2'
+              fillColor: '#FF0000'
+              fillOpacity: '0.35'
+              polyline: false
+              geodesic: false
+              polygon: false
+            enabled: false
+          control_fullscreen:
+            weight: 0
+            settings:
+              position: TOP_LEFT
+              behavior: default
+            enabled: false
+          control_geocoder:
+            weight: 0
+            settings:
+              position: TOP_LEFT
+              geocoder: google_geocoding_api
+              settings:
+                label: Address
+                description: 'Enter an address to be localized.'
+                autocomplete_min_length: 1
+                component_restrictions:
+                  route: ''
+                  locality: ''
+                  administrative_area: ''
+                  postal_code: ''
+                  country: ''
+                boundary_restriction:
+                  south: ''
+                  west: ''
+                  north: ''
+                  east: ''
+            enabled: false
+          control_loading_indicator:
+            weight: 0
+            settings:
+              position: TOP_LEFT
+              loading_label: Loading
+            enabled: false
+          google_maps_layer_transit:
+            weight: 0
+            enabled: false
       allow_override_map_settings: 0
-    third_party_settings: {  }
+      hide_textfield_form: false
+      auto_client_location: ''
+    third_party_settings:
+      geolocation_address:
+        enable: true
+        address_field: field_address
+        geocoder: google_geocoding_api
+        settings:
+          label: Address
+          description: 'Enter an address to be localized.'
+          autocomplete_min_length: 1
+          component_restrictions:
+            route: ''
+            locality: ''
+            administrative_area: ''
+            postal_code: ''
+            country: UK
+          boundary_restriction:
+            south: ''
+            west: ''
+            north: ''
+            east: ''
+        sync_mode: auto
+        button_position: LEFT_TOP
+        direction: duplex
+        ignore:
+          organization: false
+          address-line1: false
+          address-line2: false
+          locality: false
+          administrative-area: false
+          postal-code: false
     type: geolocation_googlegeocoder
     region: content
   field_meta_tags:
-    weight: 26
-    settings: {  }
+    weight: 11
+    settings:
+      sidebar: true
     third_party_settings: {  }
     type: metatag_firehose
     region: content
   field_next_audit_due:
-    weight: 101
+    weight: 15
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
     region: content
+  field_related_info:
+    weight: 31
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
   field_site_themes:
     type: options_shs
-    weight: 18
+    weight: 9
     region: content
     settings:
       display_node_count: false
@@ -255,21 +493,27 @@ content:
       force_deepest: false
     third_party_settings: {  }
   field_summary:
-    weight: 5
+    weight: 4
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: text_textarea
+    type: string_textarea
     region: content
   field_supplementary_contact:
     type: string_textfield
-    weight: 4
+    weight: 3
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_telephone:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: telephone_plus_widget
+    region: content
   flag:
     weight: 10
     region: content
@@ -277,20 +521,20 @@ content:
     third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 2
+    weight: 1
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 100
+    weight: 14
     settings: {  }
     region: content
     third_party_settings: {  }
   path:
     type: path
-    weight: 24
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -298,26 +542,43 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 22
+    weight: 4
     region: content
+    third_party_settings: {  }
+  publish_on:
+    type: datetime_timestamp_no_default
+    weight: 18
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  publish_state:
+    type: scheduler_moderation
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  scheduler_settings:
+    weight: 16
+    region: content
+    settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 25
+    weight: 7
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 23
+    weight: 5
     region: content
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: -5
+    weight: 0
     region: content
     settings:
       size: 60
@@ -325,15 +586,28 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 3
+    weight: 2
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
+      match_limit: 10
     region: content
     third_party_settings: {  }
+  unpublish_on:
+    type: datetime_timestamp_no_default
+    weight: 17
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  unpublish_state:
+    type: scheduler_moderation
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   url_redirects:
-    weight: 50
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }

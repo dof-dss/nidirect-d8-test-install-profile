@@ -25,6 +25,7 @@ settings:
           name: 'Block Formatting'
           items:
             - Format
+            - Styles
             - Table
         -
           name: Linking
@@ -39,8 +40,10 @@ settings:
         -
           name: Media
           items:
-            - paragraphs_inline_entity_form
             - image_embed
+            - location
+            - audio_embed
+            - video_embed
         -
           name: Tasks
           items:
@@ -57,11 +60,13 @@ settings:
             - Maximize
   plugins:
     stylescombo:
-      styles: ''
+      styles: "p.info-notice|Information notice\r\nul.split-list|Split bulleted list\r\nol.split-list|Split numbered list\r\ntable.table-fixed-width|Equal table columns\r\na.call-to-action|Big green button"
     language:
       language_list: un
     linkit:
       linkit_profile: default
+    tokenbrowser:
+      token_types: {  }
 image_upload:
   status: true
   scheme: public

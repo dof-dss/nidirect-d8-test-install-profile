@@ -1,0 +1,14 @@
+uuid: 891b4262-aac7-4a39-b9e9-fecc693fbbaf
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: YX11eogkFeZciY2jKxmufdAFxo0vwqPLKDfpxQM3ohY
+id: migrate_drupal_7_taxo
+label: 'NIDirect - Taxonomy'
+description: 'Drupal 7 taxonomies and terms'
+source_type: 'Drupal 7'
+module: null
+shared_configuration:
+  source:
+    key: drupal7db
