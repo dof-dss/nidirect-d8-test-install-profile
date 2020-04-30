@@ -1,0 +1,12 @@
+uuid: 863a4c76-c1db-448c-82cc-bd570588c384
+langcode: en
+status: true
+dependencies: {  }
+id: migrate_nidirect_node_landing_page
+label: 'NIDirect - Landing Page Nodes'
+description: 'Drupal 7 Landing Page nodes'
+source_type: 'Drupal 7'
+module: null
+shared_configuration:
+  source:
+    key: drupal7db

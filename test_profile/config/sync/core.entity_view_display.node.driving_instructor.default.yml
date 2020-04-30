@@ -3,8 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.driving_instructor.field_contact_phone
-    - field.field.node.driving_instructor.field_contact_sms
     - field.field.node.driving_instructor.field_di_adi_no
     - field.field.node.driving_instructor.field_di_areas
     - field.field.node.driving_instructor.field_di_categories
@@ -13,31 +11,23 @@ dependencies:
     - field.field.node.driving_instructor.field_email_address
     - field.field.node.driving_instructor.field_link_url
     - field.field.node.driving_instructor.field_meta_tags
+    - field.field.node.driving_instructor.field_telephone
     - node.type.driving_instructor
   module:
     - link
     - metatag
+    - origins_common
+    - telephone_plus
     - user
 id: node.driving_instructor.default
 targetEntityType: node
 bundle: driving_instructor
 mode: default
 content:
-  field_contact_phone:
-    type: string
-    weight: 3
+  content_moderation_control:
+    weight: 0
     region: content
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-  field_contact_sms:
-    type: string
-    weight: 2
-    region: content
-    label: above
-    settings:
-      link_to_entity: false
+    settings: {  }
     third_party_settings: {  }
   field_di_adi_no:
     type: string
@@ -56,16 +46,18 @@ content:
       link: true
     third_party_settings: {  }
   field_di_categories:
-    type: entity_reference_label
+    type: html_list_formatter
     weight: 6
     region: content
     label: above
     settings:
-      link: true
+      list_type: ul
+      list_classes: ''
+      display_item_link: false
     third_party_settings: {  }
   field_di_firstname:
     type: string
-    weight: 0
+    weight: 1
     region: content
     label: above
     settings:
@@ -73,7 +65,7 @@ content:
     third_party_settings: {  }
   field_di_lastname:
     type: string
-    weight: 1
+    weight: 2
     region: content
     label: above
     settings:
@@ -104,6 +96,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: metatag_empty_formatter
+    region: content
+  field_telephone:
+    weight: 3
+    label: above
+    settings:
+      vcard: true
+    third_party_settings: {  }
+    type: telephone_plus_link
     region: content
   links:
     weight: 9

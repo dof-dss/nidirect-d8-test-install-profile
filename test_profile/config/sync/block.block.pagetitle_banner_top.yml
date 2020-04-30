@@ -1,0 +1,25 @@
+uuid: d1e55f37-f778-424f-89e7-d4c84f7952db
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - nicsdru_nidirect_theme
+id: pagetitle_banner_top
+theme: nicsdru_nidirect_theme
+region: top_banner
+weight: 0
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: "/publications\r\n/publications/date/*\r\n/publications/topic/*\r\n/services/gp-practices"
+    negate: false
+    context_mapping: {  }

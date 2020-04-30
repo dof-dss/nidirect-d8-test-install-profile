@@ -1,16 +1,17 @@
-uuid: d7ca924a-f878-47e6-8ab5-28c118a0605a
+uuid: 28631df7-396f-4cd3-b856-948a0a285b98
 langcode: en
 status: false
 dependencies: {  }
 id: development
-label: Development
-description: ''
+label: development
+description: 'Development environment split'
 folder: ../config/development
 module: {  }
 theme: {  }
 blacklist: {  }
 graylist:
-  - core.extension
+  - search_api.server.solr_default
+  - system.performance
 graylist_dependents: true
 graylist_skip_equal: true
 weight: 0
