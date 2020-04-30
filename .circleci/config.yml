@@ -32,13 +32,13 @@ jobs:
       - run:
             name: Add OS and PHP extensions
             command: |
-              sudo cp /home/circleci/nidirect-test-profile/.circleci/docker-php-circleci.ini /usr/local/etc/php/conf.d/
+              sudo cp /home/circleci/nidirect-d8-mig-mods/.circleci/docker-php-circleci.ini /usr/local/etc/php/conf.d/
               sudo apt-get update
               sudo apt-get install -y libpng-dev
               sudo docker-php-ext-install gd
               composer global require hirak/prestissimo
       - checkout:
-          path: /home/circleci/nidirect-test-profile
+          path: /home/circleci/nidirect-d8-mig-mods
       - run:
           name: Fetch latest Drupal version
           command: |
@@ -46,7 +46,7 @@ jobs:
             mkdir -p ${CIRCLE_WORKING_DIRECTORY}/web/profiles/custom/test_profile
       - run:
           name: Move custom code into position
-          command: mv /home/circleci/nidirect-test-profile ${CIRCLE_WORKING_DIRECTORY}/web/profiles/custom/test_profile
+          command: mv /home/circleci/nidirect-d8-mig-mods ${CIRCLE_WORKING_DIRECTORY}/web/profiles/custom/test_profile
       - run:
           name: Fetch drupal-check and any dependencies
           command: |
