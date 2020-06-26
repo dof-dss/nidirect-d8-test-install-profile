@@ -8,7 +8,7 @@ Drupal source code for the NIDirect website: https://www.nidirect.gov.uk.
 
 This repository should be cloned as follows inside the /web/profiles directory of a working Drupal 8 NIDirect site:
 
-`git clone git@svegit01.thestables.net:dss/nidirect-d8-test-install-profile.git profiles`
+`git clone git@svegit01.thestables.net:dss/nidirect-d8-test-install-profile.git custom`
  
 (after doing this, you should have a 'web/profiles/custom/test_profile' directory in your project)
 
