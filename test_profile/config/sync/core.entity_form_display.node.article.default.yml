@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - entity_browser.browser.media_entity_browser
     - field.field.node.article.body
     - field.field.node.article.field_additional_info
     - field.field.node.article.field_banner_image
@@ -22,8 +21,8 @@ dependencies:
   module:
     - content_moderation
     - datetime
-    - entity_browser
     - link
+    - media_library
     - metatag
     - path
     - scheduler
@@ -39,12 +38,12 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 8
+    weight: 9
     region: content
     settings:
       rows: 9
-      summary_rows: 3
       placeholder: ''
+      summary_rows: 3
       show_summary: false
     third_party_settings: {  }
   created:
@@ -55,7 +54,7 @@ content:
     third_party_settings: {  }
   field_additional_info:
     type: text_textarea
-    weight: 10
+    weight: 11
     region: content
     settings:
       rows: 5
@@ -64,21 +63,14 @@ content:
   field_banner_image:
     weight: 4
     settings:
-      entity_browser: media_entity_browser
-      field_widget_display: rendered_entity
-      field_widget_display_settings:
-        view_mode: preview
-      field_widget_edit: true
-      field_widget_remove: true
-      selection_mode: selection_append
-      field_widget_replace: false
-      open: false
+      media_types: {  }
     third_party_settings: {  }
-    type: entity_browser_entity_reference
+    type: media_library_widget
     region: content
   field_meta_tags:
     weight: 19
-    settings: {  }
+    settings:
+      sidebar: true
     third_party_settings: {  }
     type: metatag_firehose
     region: content
@@ -89,22 +81,14 @@ content:
     type: datetime_default
     region: content
   field_photo:
-    weight: 5
+    weight: 8
     settings:
-      entity_browser: media_entity_browser
-      field_widget_display: rendered_entity
-      field_widget_display_settings:
-        view_mode: preview
-      field_widget_edit: true
-      field_widget_remove: true
-      selection_mode: selection_append
-      field_widget_replace: false
-      open: false
+      media_types: {  }
     third_party_settings: {  }
-    type: entity_browser_entity_reference
+    type: media_library_widget
     region: content
   field_related_info:
-    weight: 31
+    weight: 10
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -123,7 +107,7 @@ content:
     third_party_settings: {  }
   field_subtheme:
     type: options_shs
-    weight: 1
+    weight: 2
     region: content
     settings:
       display_node_count: false
@@ -137,14 +121,14 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-    type: text_textarea
+    type: string_textarea
     region: content
   field_teaser:
     type: string_textfield
     weight: 6
     region: content
     settings:
-      size: 60
+      size: 140
       placeholder: ''
     third_party_settings: {  }
   field_toc_enable:
@@ -152,12 +136,12 @@ content:
     label: above
     settings:
       display_label: true
-    weight: 27
+    weight: 26
     third_party_settings: {  }
     region: content
   field_top_level_theme:
     type: entity_reference_autocomplete
-    weight: 11
+    weight: 1
     region: content
     settings:
       match_operator: CONTAINS
@@ -172,7 +156,7 @@ content:
     third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 2
+    weight: 5
     region: content
     settings:
       include_locked: true
@@ -204,7 +188,7 @@ content:
     third_party_settings: {  }
   publish_state:
     type: scheduler_moderation
-    weight: 30
+    weight: 27
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -253,7 +237,7 @@ content:
     third_party_settings: {  }
   unpublish_state:
     type: scheduler_moderation
-    weight: 30
+    weight: 28
     region: content
     settings: {  }
     third_party_settings: {  }
