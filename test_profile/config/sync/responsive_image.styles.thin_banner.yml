@@ -1,0 +1,34 @@
+uuid: 6de991df-ed48-4a46-9838-b9779ef49e1b
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.nigov_banner_1880x200_x2
+    - image.style.nigov_banner_940x100_x1
+  theme:
+    - nicsdru_origins_theme
+id: thin_banner
+label: 'Banner thin'
+image_style_mappings:
+  -
+    breakpoint_id: nicsdru_origins_theme.mob
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: nigov_banner_940x100_x1
+  -
+    breakpoint_id: nicsdru_origins_theme.mob
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: nigov_banner_1880x200_x2
+  -
+    breakpoint_id: nicsdru_origins_theme.min
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: nigov_banner_940x100_x1
+  -
+    breakpoint_id: nicsdru_origins_theme.min
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: nigov_banner_940x100_x1
+breakpoint_group: nicsdru_origins_theme
+fallback_image_style: nigov_banner_940x100_x1

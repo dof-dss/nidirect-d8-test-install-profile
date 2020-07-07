@@ -1,0 +1,36 @@
+uuid: 7b87b786-7273-4776-a34f-53afba8b89fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.nigov_portrait_300_x1
+    - image.style.nigov_portrait_600_x2
+    - image.style.nigov_portrait_med_450_x1
+    - image.style.nigov_portrait_med_900_x2
+  theme:
+    - nicsdru_origins_theme
+id: portrait_float
+label: 'Portrait float'
+image_style_mappings:
+  -
+    breakpoint_id: nicsdru_origins_theme.mob
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: nigov_portrait_300_x1
+  -
+    breakpoint_id: nicsdru_origins_theme.mob
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: nigov_portrait_600_x2
+  -
+    breakpoint_id: nicsdru_origins_theme.min
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: nigov_portrait_med_450_x1
+  -
+    breakpoint_id: nicsdru_origins_theme.min
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: nigov_portrait_med_900_x2
+breakpoint_group: nicsdru_origins_theme
+fallback_image_style: nigov_portrait_300_x1
