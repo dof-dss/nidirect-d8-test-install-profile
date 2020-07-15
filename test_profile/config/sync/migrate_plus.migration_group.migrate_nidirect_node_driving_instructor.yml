@@ -1,0 +1,14 @@
+uuid: 774a35e6-ec7e-441a-9e52-3cb1e7108b6d
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: cI6JwTaPPhVxugaW0s-6gXN9z4DMxrwGGCSEdDEZM1I
+id: migrate_nidirect_node_driving_instructor
+label: 'NIDirect - Driving instructor nodes'
+description: 'Drupal 7 Driving instructor nodes'
+source_type: 'Drupal 7'
+module: null
+shared_configuration:
+  source:
+    key: drupal7db

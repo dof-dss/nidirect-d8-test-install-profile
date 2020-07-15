@@ -1,0 +1,14 @@
+uuid: d69413a1-b7b3-498c-bea2-cbb580efafdb
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: elyFfBUYpbIy5Kmpy5lw4kBK6-prPQTxr8aLbcpXhOI
+id: migrate_nidirect_node_application
+label: 'NIDirect - Application nodes'
+description: 'Drupal 7 Application nodes'
+source_type: 'Drupal 7'
+module: null
+shared_configuration:
+  source:
+    key: drupal7db

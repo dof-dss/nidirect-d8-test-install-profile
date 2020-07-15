@@ -1,0 +1,128 @@
+uuid: a963f204-8273-40ab-b01a-6137c82811bd
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: gDFkv9ETfgFrr52T6lvhY3YQFdWCuOqqJXYXeqdUoMA
+id: upgrade_d7_taxonomy_term_site_themes
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: alterFieldFormatterMigration
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+migration_group: migrate_drupal_7_taxo
+label: 'Taxonomy terms (Site topics)'
+source:
+  plugin: d7_taxonomy_term
+  bundle: site_topics
+process:
+  tid: tid
+  vid:
+    -
+      plugin: static_map
+      bypass: true
+      source: vid
+      map:
+        1: site_themes
+  name: name
+  description/value: description
+  description/format: format
+  weight: weight
+  parent_id:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: parent
+    -
+      plugin: migration_lookup
+      migration:
+        - upgrade_d7_taxonomy_term_ni_postcodes
+        - upgrade_d7_taxonomy_term_drive_instr_categories
+        - upgrade_d7_taxonomy_term_hc_info_sources
+        - upgrade_d7_taxonomy_term_hc_symptoms
+        - upgrade_d7_taxonomy_term_hc_condition_type
+        - upgrade_d7_taxonomy_term_hc_body_system
+        - upgrade_d7_taxonomy_term_hc_body_location
+        - upgrade_d7_taxonomy_term_contact_categories
+        - upgrade_d7_taxonomy_term_site_themes
+  parent:
+    -
+      plugin: default_value
+      default_value: 0
+      source: '@parent_id'
+  forum_container: is_container
+  changed: timestamp
+  langcode: language
+  field_toc_enable: field_toc_enable
+  field_photo:
+    -
+      plugin: sub_process
+      source: field_photo
+      process:
+        target_id: fid
+        alt: alt
+        title: title
+        width: width
+        height: height
+  field_theme_summary:
+    -
+      plugin: get
+      source: field_summary
+    -
+      plugin: strip_html_filter
+  field_teaser: field_teaser
+  field_additional_info:
+    -
+      plugin: get
+      source: field_additional_info
+  field_additional_info/0/format:
+    -
+      plugin: static_map
+      bypass: true
+      source: field_additional_info/0/format
+      map:
+        filtered_html: basic_html
+        filtered_html_with_no_images: basic_html
+        filtered_html_with_templates: basic_html
+        filtered_html_with_tokens: basic_html
+        html_for_admins: full_html
+        paste_format: plain_text
+        plain_text: plain_text
+  field_banner_image:
+    -
+      plugin: sub_process
+      source: field_banner_image
+      process:
+        target_id: fid
+        alt: alt
+        title: title
+        width: width
+        height: height
+  field_supplementary_parents:
+    -
+      plugin: sub_process
+      source: field_supplementary_parents
+      process:
+        target_id: tid
+  field_top_level_theme:
+    -
+      plugin: sub_process
+      source: field_top_level_theme
+      process:
+        target_id: tid
+  field_taxonomy_rank: field_taxonomy_rank
+destination:
+  plugin: 'entity:taxonomy_term'
+  default_bundle: site_themes
+migration_dependencies:
+  optional:
+    - upgrade_d7_taxonomy_term_contact_categories
+    - upgrade_d7_taxonomy_term_drive_instr_categories
+    - upgrade_d7_taxonomy_term_hc_body_location
+    - upgrade_d7_taxonomy_term_hc_body_system
+    - upgrade_d7_taxonomy_term_hc_condition_type
+    - upgrade_d7_taxonomy_term_hc_info_sources
+    - upgrade_d7_taxonomy_term_hc_symptoms
+    - upgrade_d7_taxonomy_term_ni_postcodes
+    - upgrade_d7_taxonomy_term_site_themes
