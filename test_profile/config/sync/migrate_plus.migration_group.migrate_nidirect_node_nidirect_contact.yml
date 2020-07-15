@@ -1,0 +1,14 @@
+uuid: f760ae3d-5483-430e-9203-5dbc490c7a85
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: puIIE_rykSy1APSTQoJVY6txj8gwSndbqa_DvMBx8VE
+id: migrate_nidirect_node_nidirect_contact
+label: 'NIDirect - NIDirect Contact nodes'
+description: 'Drupal 7 NIDirect Contact nodes'
+source_type: 'Drupal 7'
+module: null
+shared_configuration:
+  source:
+    key: drupal7db

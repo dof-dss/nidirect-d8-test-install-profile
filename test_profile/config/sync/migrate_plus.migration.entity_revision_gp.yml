@@ -1,0 +1,40 @@
+uuid: 21248e6e-ac1f-4078-9576-68f335d02283
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: h9zU9cGA2B4z-d3aR9ccracm_DXLpSNfFtbNSzGKJxc
+id: entity_revision_gp
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: alterFieldFormatterMigration
+cck_plugin_method: null
+migration_tags: null
+migration_group: migrate_nidirect_entity_gp
+label: 'GP details content type nodes > GP custom content entity (Revisions)'
+source:
+  plugin: d7_node_revision
+  node_type: nidirect_gp
+process:
+  id: tnid
+  vid: vid
+  langcode:
+    -
+      plugin: default_value
+      source: language
+      default_value: und
+  first_name: field_gp_forename
+  last_name: field_gp_name
+  cypher: field_gp_cypher
+  user_id: node_uid
+  status: status
+  created: created
+  changed: changed
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+destination:
+  plugin: 'entity_revision:gp'
+  default_bundle: gp
+migration_dependencies:
+  required:
+    - entity_gp

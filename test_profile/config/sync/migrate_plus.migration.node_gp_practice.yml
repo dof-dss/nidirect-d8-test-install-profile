@@ -1,0 +1,90 @@
+uuid: 8a429543-df4b-4091-b261-969c0c863fd6
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: gWPduHedkx9wCPUwadSQctMcxBL43PXuMDmPriP0JFE
+id: node_gp_practice
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: alterFieldInstanceMigration
+cck_plugin_method: null
+migration_tags: null
+migration_group: migrate_nidirect_node_gp_practice
+label: 'GP Practice content type nodes'
+source:
+  plugin: phone_field_node_source
+  node_type: nidirect_gp_practice
+process:
+  nid: tnid
+  vid: vid
+  langcode:
+    -
+      plugin: default_value
+      source: language
+      default_value: und
+  title: title
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  comment_node_page/0/status: comment
+  field_gp_practice_name: field_gp_practice_name
+  field_gp_practice_no: field_gp_practice_no
+  field_gp_surgery_name: field_gp_surgery_name
+  field_gp_partnership_no: field_gp_partnership_no
+  field_gp_lcg: field_gp_lcg
+  field_gp_appointments:
+    plugin: sub_process
+    source: field_gp_appointments
+    process:
+      title:
+        plugin: default_value
+        default_value: 'Online appointments'
+      uri: url
+      options: attributes
+  field_gp_prescriptions:
+    plugin: sub_process
+    source: field_gp_prescriptions
+    process:
+      title:
+        plugin: default_value
+        default_value: 'Repeat prescriptions'
+      uri: url
+      options: attributes
+  field_gp_practice_website:
+    -
+      plugin: field_link
+      source: field_gp_practice_website
+  field_telephone: telephone_number
+  field_gp_practice_lead: field_gp_practice_lead
+  field_gp_practice_member: field_gp_practice_member
+  field_address:
+    -
+      plugin: callback
+      callable:
+        - \Drupal\migrate_nidirect_global\AddressFieldMerge
+        - convertToAddressFieldFormat
+      source:
+        - field_contact_address_01
+        - field_contact_address_02
+        - ''
+        - ''
+        - ''
+        - field_contact_town_city
+        - field_contact_postcode
+    -
+      plugin: addressfield
+  field_location/lng: field_map/0/lon
+  field_location/lat: field_map/0/lat
+destination:
+  plugin: 'entity:node'
+  default_bundle: gp_practice
+migration_dependencies:
+  required:
+    - upgrade_d7_user
+    - entity_gp

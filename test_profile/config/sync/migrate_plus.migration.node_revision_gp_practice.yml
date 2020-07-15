@@ -1,0 +1,46 @@
+uuid: 0a209915-b7d5-4a36-8de9-0fb80806314e
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: CcwrgJ8v7l-F2o4aY6afq16SEzp0-K6_DfB5q2YHSvk
+id: node_revision_gp_practice
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: alterFieldFormatterMigration
+cck_plugin_method: null
+migration_tags: null
+migration_group: migrate_nidirect_node_gp_practice
+label: 'GP Practice content type nodes (Revisions)'
+source:
+  plugin: phone_field_revision_node_source
+  node_type: nidirect_gp_practice
+process:
+  nid: tnid
+  vid: vid
+  langcode:
+    -
+      plugin: default_value
+      source: language
+      default_value: und
+  title: title
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  comment_node_page/0/status: comment
+  field_gp_practice_name: field_gp_practice_name
+  field_gp_practice_no: field_gp_practice_no
+  field_gp_surgery_name: field_gp_surgery_name
+  field_gp_partnership_no: field_gp_partnership_no
+  field_gp_lcg: field_gp_lcg
+destination:
+  plugin: 'entity:node'
+  default_bundle: gp_practice
+migration_dependencies:
+  required:
+    - node_gp_practice
