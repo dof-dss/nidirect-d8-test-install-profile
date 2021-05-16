@@ -9,7 +9,7 @@ dependencies:
 id: pagetitle_banner_top
 theme: nicsdru_nidirect_theme
 region: top_banner
-weight: 0
+weight: -17
 provider: null
 plugin: page_title_block
 settings:
@@ -20,6 +20,13 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/publications\r\n/publications/date/*\r\n/publications/topic/*\r\n/services/gp-practices"
+    pages: |
+      <front>
+      /publications
+      /publications/date/*
+      /publications/topic/*
+      /services/gp-practices
+      /services/health-conditions-a-z*
+      /services/driving-instructors
     negate: false
     context_mapping: {  }

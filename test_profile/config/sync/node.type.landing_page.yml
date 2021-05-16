@@ -4,24 +4,20 @@ status: true
 dependencies:
   module:
     - menu_ui
-    - scheduler
+    - origins_toc
 third_party_settings:
   menu_ui:
     parent: 'main:'
     available_menus:
       - main
-  scheduler:
-    expand_fieldset: when_required
-    fields_display_mode: vertical_tab
-    publish_enable: true
-    publish_past_date: error
-    publish_past_date_created: false
-    publish_required: false
-    publish_revision: true
-    publish_touch: false
-    unpublish_enable: true
-    unpublish_required: false
-    unpublish_revision: true
+  origins_toc:
+    toc_enable: 0
+    toc_title: 'Table of contents'
+    toc_location: ''
+    toc_insert: after
+    toc_source_container: ''
+    toc_element: h2
+    toc_exclusions: ''
 name: 'Landing page'
 type: landing_page
 description: 'Use this content type for landing pages for campaigns.'

@@ -1,0 +1,28 @@
+uuid: 4c86046b-fc7d-4eee-af02-444bb322ca88
+langcode: en
+status: true
+dependencies:
+  module:
+    - nidirect_news
+    - node
+  theme:
+    - nicsdru_nidirect_theme
+id: featurednews
+theme: nicsdru_nidirect_theme
+region: sidebar_second
+weight: -14
+provider: null
+plugin: featured_news_block
+settings:
+  id: featured_news_block
+  label: 'Featured news'
+  provider: nidirect_news
+  label_display: visible
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      news: news
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

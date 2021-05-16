@@ -1,0 +1,27 @@
+uuid: 6d3d63bc-7093-47ef-a2e8-8f826c33339f
+langcode: en
+status: true
+dependencies:
+  module:
+    - nidirect_homepage
+    - system
+  theme:
+    - nicsdru_nidirect_theme
+id: featuredcontent_covid19
+theme: nicsdru_nidirect_theme
+region: top_banner
+weight: -15
+provider: null
+plugin: featured_content
+settings:
+  id: featured_content
+  label: 'Featured content: COVID-19'
+  provider: nidirect_homepage
+  label_display: '0'
+  featured_items: '14736'
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

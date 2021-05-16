@@ -12,16 +12,14 @@ dependencies:
     - field.field.node.news.field_teaser
     - field.field.node.news.field_toc_enable
     - node.type.news
-    - workflows.workflow.nics_editorial_workflow
   module:
     - content_moderation
     - datetime
-    - link
+    - linkit
     - media_library
+    - media_library_edit
     - metatag
     - path
-    - scheduler
-    - scheduler_content_moderation_integration
     - text
 id: node.news.default
 targetEntityType: node
@@ -30,7 +28,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 5
+    weight: 6
     settings:
       rows: 9
       summary_rows: 3
@@ -53,11 +51,13 @@ content:
     region: content
   field_photo:
     type: media_library_widget
-    weight: 6
+    weight: 5
     region: content
     settings:
       media_types: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      media_library_edit:
+        show_edit: '1'
   field_published_date:
     type: datetime_default
     weight: 1
@@ -69,11 +69,12 @@ content:
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      linkit_profile: default
     third_party_settings: {  }
-    type: link_default
+    type: linkit
     region: content
   field_summary:
-    type: text_textarea
+    type: string_textarea
     weight: 4
     region: content
     settings:
@@ -127,17 +128,17 @@ content:
     region: content
     third_party_settings: {  }
   publish_on:
-    type: datetime_timestamp_no_default
-    weight: 17
-    region: content
+    weight: 28
     settings: {  }
     third_party_settings: {  }
+    type: datetime_timestamp
+    region: content
   publish_state:
-    type: scheduler_moderation
-    weight: 22
-    region: content
+    weight: 26
     settings: {  }
     third_party_settings: {  }
+    type: options_select
+    region: content
   scheduler_settings:
     weight: 16
     region: content
@@ -176,17 +177,17 @@ content:
     region: content
     third_party_settings: {  }
   unpublish_on:
-    type: datetime_timestamp_no_default
-    weight: 18
-    region: content
+    weight: 29
     settings: {  }
     third_party_settings: {  }
+    type: datetime_timestamp
+    region: content
   unpublish_state:
-    type: scheduler_moderation
-    weight: 21
-    region: content
+    weight: 27
     settings: {  }
     third_party_settings: {  }
+    type: options_select
+    region: content
   url_redirects:
     weight: 19
     region: content

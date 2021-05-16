@@ -17,16 +17,14 @@ dependencies:
     - field.field.node.article.field_toc_enable
     - field.field.node.article.field_top_level_theme
     - node.type.article
-    - workflows.workflow.nics_editorial_workflow
   module:
     - content_moderation
     - datetime
-    - link
+    - linkit
     - media_library
+    - media_library_edit
     - metatag
     - path
-    - scheduler
-    - scheduler_content_moderation_integration
     - shs
     - text
 _core:
@@ -84,7 +82,9 @@ content:
     weight: 8
     settings:
       media_types: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      media_library_edit:
+        show_edit: '1'
     type: media_library_widget
     region: content
   field_related_info:
@@ -92,8 +92,9 @@ content:
     settings:
       placeholder_url: ''
       placeholder_title: ''
+      linkit_profile: default
     third_party_settings: {  }
-    type: link_default
+    type: linkit
     region: content
   field_site_themes:
     type: options_shs
@@ -181,17 +182,17 @@ content:
     region: content
     third_party_settings: {  }
   publish_on:
-    type: datetime_timestamp_no_default
-    weight: 22
-    region: content
+    weight: 31
     settings: {  }
     third_party_settings: {  }
+    type: datetime_timestamp
+    region: content
   publish_state:
-    type: scheduler_moderation
-    weight: 27
-    region: content
+    weight: 29
     settings: {  }
     third_party_settings: {  }
+    type: options_select
+    region: content
   scheduler_settings:
     weight: 21
     region: content
@@ -230,17 +231,17 @@ content:
       match_limit: 10
     third_party_settings: {  }
   unpublish_on:
-    type: datetime_timestamp_no_default
-    weight: 23
-    region: content
+    weight: 32
     settings: {  }
     third_party_settings: {  }
+    type: datetime_timestamp
+    region: content
   unpublish_state:
-    type: scheduler_moderation
-    weight: 28
-    region: content
+    weight: 30
     settings: {  }
     third_party_settings: {  }
+    type: options_select
+    region: content
   url_redirects:
     weight: 20
     region: content

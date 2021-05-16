@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - search_api.index.default_content
+    - search_api.index.contacts
     - taxonomy.vocabulary.drive_instr_categories
   module:
     - search_api
@@ -13,7 +13,7 @@ label: 'Driving instructors'
 module: views
 description: 'Search results for driving instructors'
 tag: ''
-base_table: search_api_index_default_content
+base_table: search_api_index_contacts
 base_field: search_api_id
 display:
   default:
@@ -37,7 +37,7 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Search
+          submit_button: 'Find instructors'
           reset_button: false
           reset_button_label: Reset
           exposed_sorts_label: 'Sort results'
@@ -45,7 +45,7 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: mini
+        type: full
         options:
           items_per_page: 21
           offset: 0
@@ -54,6 +54,8 @@ display:
           tags:
             previous: '‹ previous'
             next: 'next ›'
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page: false
             items_per_page_label: 'Items per page'
@@ -62,6 +64,7 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
+          quantity: 9
       style:
         type: default
         options:
@@ -90,7 +93,7 @@ display:
       fields:
         title:
           id: title
-          table: search_api_datasource_default_content_entity_node
+          table: search_api_datasource_contacts_entity_node
           field: title
           relationship: none
           group_type: group
@@ -162,7 +165,7 @@ display:
       filters:
         search_api_fulltext:
           id: search_api_fulltext
-          table: search_api_index_default_content
+          table: search_api_index_contacts
           field: search_api_fulltext
           relationship: none
           group_type: group
@@ -217,7 +220,7 @@ display:
           plugin_id: search_api_fulltext
         type:
           id: type
-          table: search_api_index_default_content
+          table: search_api_index_contacts
           field: type
           relationship: none
           group_type: group
@@ -258,7 +261,7 @@ display:
           plugin_id: search_api_options
         field_di_categories:
           id: field_di_categories
-          table: search_api_index_default_content
+          table: search_api_index_contacts
           field: field_di_categories
           relationship: none
           group_type: group
@@ -317,7 +320,7 @@ display:
       sorts:
         search_api_relevance:
           id: search_api_relevance
-          table: search_api_index_default_content
+          table: search_api_index_contacts
           field: search_api_relevance
           relationship: none
           group_type: group
@@ -341,7 +344,7 @@ display:
           plugin_id: random
         field_di_lastname:
           id: field_di_lastname
-          table: search_api_index_default_content
+          table: search_api_index_contacts
           field: field_di_lastname
           relationship: none
           group_type: group
@@ -370,7 +373,7 @@ display:
       relationships:
         field_di_categories:
           id: field_di_categories
-          table: search_api_datasource_default_content_entity_node
+          table: search_api_datasource_contacts_entity_node
           field: field_di_categories
           relationship: none
           group_type: group
@@ -392,7 +395,9 @@ display:
         - 'url.query_args:sort_by'
         - 'url.query_args:sort_order'
         - user
-      tags: {  }
+        - 'user.node_grants:view'
+      tags:
+        - 'config:search_api.index.contacts'
   driving_instructor_results:
     display_plugin: page
     id: driving_instructor_results
@@ -405,6 +410,7 @@ display:
         type: none
       defaults:
         cache: false
+      exposed_block: true
     cache_metadata:
       max-age: 0
       contexts:
@@ -415,4 +421,6 @@ display:
         - 'url.query_args:sort_by'
         - 'url.query_args:sort_order'
         - user
-      tags: {  }
+        - 'user.node_grants:view'
+      tags:
+        - 'config:search_api.index.contacts'
