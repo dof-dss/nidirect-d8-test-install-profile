@@ -24,9 +24,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: |
-      /publications
-      /publications/date/*
-      /publications/topic/*
+    pages: "/publications\n/publications/date/*\n/publications/topic/*\n"
     negate: false
     context_mapping: {  }

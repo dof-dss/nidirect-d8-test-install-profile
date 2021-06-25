@@ -1,0 +1,12 @@
+uuid: 05260d42-1c9a-405f-9003-eb74379f9d5c
+langcode: en
+status: true
+dependencies: {  }
+id: migrate_nidirect_entity_gp
+label: 'NIDirect - GP entity'
+description: 'Drupal 7 GP details nodes to custom content entity'
+source_type: 'Drupal 7'
+module: null
+shared_configuration:
+  source:
+    key: drupal7db

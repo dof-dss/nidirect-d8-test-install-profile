@@ -34,11 +34,6 @@ blocks:
     rev_id_current: null
     fields:
       body:
-        value: |
-          <ul>
-          	<li><a href="/contacts">Contacts A to Z</a></li>
-          	<li><a href="/contacts/government-departments-in-northern-ireland">Government departments in Northern Ireland</a></li>
-          	<li><a href="/contacts/local-councils-in-northern-ireland">Local councils in Northern Ireland</a></li>
-          </ul>
+        value: "<ul>\n\t<li><a href=\"/contacts\">Contacts A to Z</a></li>\n\t<li><a href=\"/contacts/government-departments-in-northern-ireland\">Government departments in Northern Ireland</a></li>\n\t<li><a href=\"/contacts/local-councils-in-northern-ireland\">Local councils in Northern Ireland</a></li>\n</ul>\n"
         summary: ''
         format: full_html

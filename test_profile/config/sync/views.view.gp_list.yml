@@ -606,10 +606,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: |
-              This page shows all the GPs listed on Nidirect.
-              <br><br>
-              This page was created by the web development team to assist with QA and verification of the GP list. It is not intended for other uses, or as a replacement for the master spreadsheet available from other sources.
+            value: "This page shows all the GPs listed on Nidirect.\n<br><br>\nThis page was created by the web development team to assist with QA and verification of the GP list. It is not intended for other uses, or as a replacement for the master spreadsheet available from other sources.\n"
             format: basic_html
           plugin_id: text
       footer: {  }

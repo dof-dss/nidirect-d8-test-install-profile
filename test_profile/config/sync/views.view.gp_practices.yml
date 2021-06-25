@@ -283,16 +283,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: |
-              <h2>0 GP practices</h2>
-              
-              <p>Your search did not match any GP practices.</p>
-              
-              <h3>Suggestions</h3>
-              <ul>
-              <li>Check the names of towns, GPs or GP practices are spelled correctly</li>
-              <li>If you entered a postcode, check it is a valid postcode</li>
-              </ul>
+            value: "<h2>0 GP practices</h2>\n\n<p>Your search did not match any GP practices.</p>\n\n<h3>Suggestions</h3>\n<ul>\n<li>Check the names of towns, GPs or GP practices are spelled correctly</li>\n<li>If you entered a postcode, check it is a valid postcode</li>\n</ul>\n"
             format: basic_html
           plugin_id: text
       relationships: {  }

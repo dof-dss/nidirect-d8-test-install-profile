@@ -31,7 +31,7 @@ module:
   ctools_entity_mask: 0
   datetime: 0
   datetime_range: 0
-  devel: 0
+  dblog: 0
   devel_entity_updates: 0
   diff: 0
   dynamic_entity_reference: 0
@@ -50,7 +50,6 @@ module:
   field_group: 0
   field_ui: 0
   file: 0
-  filelog: 0
   filter: 0
   flag: 0
   geocoder: 0
@@ -110,6 +109,7 @@ module:
   migrate_nidirect_user: 0
   migrate_nidirect_utils: 0
   migrate_plus: 0
+  migrate_process_trim: 0
   migrate_tools: 0
   moderation_sidebar: 0
   multiline_config: 0
@@ -195,7 +195,6 @@ module:
   twig_field_value: 0
   twig_tweak: 0
   ultimate_cron: 0
-  update: 0
   user: 0
   views_contextual_filters_or: 0
   views_custom_cache_tag: 0

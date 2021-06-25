@@ -12,13 +12,7 @@ field_name: field_secure_attachment
 entity_type: node
 bundle: embargoed_publication
 label: Documents
-description: |
-  <p>Choose at least between one and five individual files to attach to this embargoed publication revision.</p>
-  <strong>An important note about attachments:</strong>
-  <ul>
-  <li>Multiple revisions of a publication page can link to the same file attachment.</li>
-  <li>If you need to make a new version of a file available within a publication revision, attach a new file with a different filename and remove the old file attachment (this will not affect other revisions of the publication - these will still have the old file attached).</li>
-  </ul>
+description: "<p>Choose at least between one and five individual files to attach to this embargoed publication revision.</p>\n<strong>An important note about attachments:</strong>\n<ul>\n<li>Multiple revisions of a publication page can link to the same file attachment.</li>\n<li>If you need to make a new version of a file available within a publication revision, attach a new file with a different filename and remove the old file attachment (this will not affect other revisions of the publication - these will still have the old file attached).</li>\n</ul>\n"
 required: false
 translatable: false
 default_value: {  }

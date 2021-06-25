@@ -37,8 +37,6 @@ visibility:
       node: '@node.node_route_context:node'
   request_path:
     id: request_path
-    pages: |
-      <front>
-      /information-and-services/*
+    pages: "<front>\n/information-and-services/*\n"
     negate: true
     context_mapping: {  }

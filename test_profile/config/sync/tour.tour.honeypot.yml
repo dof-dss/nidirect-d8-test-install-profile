@@ -18,10 +18,7 @@ tips:
     plugin: text
     label: Honeypot
     weight: -10
-    body: |
-      Congratulations on installing Honeypot on your site! With just a few clicks, you can have your site well-protected against automated spam bots.
-      
-      Click Next to be guided through this configuration page.
+    body: "Congratulations on installing Honeypot on your site! With just a few clicks, you can have your site well-protected against automated spam bots.\n\nClick Next to be guided through this configuration page.\n"
     location: top
   protect-all-forms:
     id: protect-all-forms
@@ -30,10 +27,7 @@ tips:
     weight: -9
     attributes:
       data-id: edit-protect-all-forms
-    body: |
-      Protecting all the forms is the easiest way to quickly cut down on spam on your site, but doing this disables Drupal's caching for every page where a form is displayed.
-      
-      Note: If you have the honeypot time limit enabled, this option may cause issues with Drupal Commerce product forms or similarly-sparse forms that are able to be completed in a very short time.
+    body: "Protecting all the forms is the easiest way to quickly cut down on spam on your site, but doing this disables Drupal's caching for every page where a form is displayed.\n\nNote: If you have the honeypot time limit enabled, this option may cause issues with Drupal Commerce product forms or similarly-sparse forms that are able to be completed in a very short time.\n"
     location: bottom
   log-blocked-form-submissions:
     id: log-blocked-form-submissions

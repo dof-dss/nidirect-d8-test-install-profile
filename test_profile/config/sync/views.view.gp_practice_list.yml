@@ -272,9 +272,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: |
-              {{ title }}
-              <br><a class="edit-node-link" href="/node/{{ nid }}/edit">edit</a>
+            text: "{{ title }}\n<br><a class=\"edit-node-link\" href=\"/node/{{ nid }}/edit\">edit</a>\n"
             make_link: false
             path: ''
             absolute: false
@@ -402,9 +400,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: |
-              {{ field_gp_practice_lead }}
-              <br><a class="edit-node-link" href="/gp/{{ field_gp_practice_lead__target_id }}/edit">edit</a>
+            text: "{{ field_gp_practice_lead }}\n<br><a class=\"edit-node-link\" href=\"/gp/{{ field_gp_practice_lead__target_id }}/edit\">edit</a>\n"
             make_link: false
             path: ''
             absolute: false
@@ -467,9 +463,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: |
-              {{field_gp_practice_member}}
-              <br><a class="edit-node-link" href="/gp/{{ field_gp_practice_member__target_id }}/edit">edit</a>
+            text: "{{field_gp_practice_member}}\n<br><a class=\"edit-node-link\" href=\"/gp/{{ field_gp_practice_member__target_id }}/edit\">edit</a>\n"
             make_link: false
             path: ''
             absolute: false
@@ -1183,9 +1177,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: |
-              {{ title }}
-              <br><a class="edit-node-link" href="/node/{{ nid }}/edit">edit</a>
+            text: "{{ title }}\n<br><a class=\"edit-node-link\" href=\"/node/{{ nid }}/edit\">edit</a>\n"
             make_link: false
             path: ''
             absolute: false
@@ -1902,9 +1894,7 @@ display:
           exclude: false
           alter:
             alter_text: false
-            text: |
-              {{ field_gp_practice_lead }}
-              <br><a class="edit-node-link" href="/gp/{{ field_gp_practice_lead__target_id }}/edit">edit</a>
+            text: "{{ field_gp_practice_lead }}\n<br><a class=\"edit-node-link\" href=\"/gp/{{ field_gp_practice_lead__target_id }}/edit\">edit</a>\n"
             make_link: false
             path: ''
             absolute: false
@@ -1967,9 +1957,7 @@ display:
           exclude: false
           alter:
             alter_text: false
-            text: |
-              {{field_gp_practice_member}}
-              <br><a class="edit-node-link" href="/gp/{{ field_gp_practice_member__target_id }}/edit">edit</a>
+            text: "{{field_gp_practice_member}}\n<br><a class=\"edit-node-link\" href=\"/gp/{{ field_gp_practice_member__target_id }}/edit\">edit</a>\n"
             make_link: false
             path: ''
             absolute: false
@@ -2061,10 +2049,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: |
-              This page shows all the GP practices listed on Nidirect. <a href="/admin/config/nidirect/nidirect-gp-list.xlsx">Download an Excel version.</a>
-              <br><br>
-              This page was created by the web development team to assist with QA and verification of the GP practice list. It is not intended for other uses, or as a replacement for the master spreadsheet available from other sources.
+            value: "This page shows all the GP practices listed on Nidirect. <a href=\"/admin/config/nidirect/nidirect-gp-list.xlsx\">Download an Excel version.</a>\n<br><br>\nThis page was created by the web development team to assist with QA and verification of the GP practice list. It is not intended for other uses, or as a replacement for the master spreadsheet available from other sources.\n"
             format: basic_html
           plugin_id: text
       defaults:
@@ -2149,9 +2134,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: |
-              {{ title }}
-              <br><a class="edit-node-link" href="/node/{{ nid }}/edit">edit</a>
+            text: "{{ title }}\n<br><a class=\"edit-node-link\" href=\"/node/{{ nid }}/edit\">edit</a>\n"
             make_link: false
             path: ''
             absolute: false
@@ -2279,9 +2262,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: |
-              {{ field_gp_practice_lead }}
-              <br><a class="edit-node-link" href="/gp/{{ field_gp_practice_lead__target_id }}/edit">edit</a>
+            text: "{{ field_gp_practice_lead }}\n<br><a class=\"edit-node-link\" href=\"/gp/{{ field_gp_practice_lead__target_id }}/edit\">edit</a>\n"
             make_link: false
             path: ''
             absolute: false
@@ -2344,9 +2325,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: |
-              {{field_gp_practice_member}}
-              <br><a class="edit-node-link" href="/gp/{{ field_gp_practice_member__target_id }}/edit">edit</a>
+            text: "{{field_gp_practice_member}}\n<br><a class=\"edit-node-link\" href=\"/gp/{{ field_gp_practice_member__target_id }}/edit\">edit</a>\n"
             make_link: false
             path: ''
             absolute: false

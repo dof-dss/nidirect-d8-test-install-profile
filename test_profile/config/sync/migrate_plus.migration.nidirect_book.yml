@@ -1,0 +1,51 @@
+uuid: 15f6fb6c-2754-4473-93c9-1642cf8ba521
+langcode: en
+status: true
+dependencies: {  }
+id: nidirect_book
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+  - NIDirect
+migration_group: migrate_drupal_7_global
+label: 'NI Direct Book'
+source:
+  plugin: book
+process:
+  nid:
+    -
+      plugin: get
+      source: nid
+  book/bid:
+    -
+      plugin: get
+      source: bid
+  book/weight:
+    -
+      plugin: get
+      source: weight
+  book/pid:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: plid
+    -
+      plugin: migration_lookup
+      migration: nidirect_book
+destination:
+  plugin: book
+migration_dependencies:
+  required:
+    - node_application
+    - node_article
+    - node_contact
+    - node_external_link
+    - node_health_condition
+    - node_landing_page
+    - node_news
+    - node_nidirect_contact
+    - node_page
+    - node_publication

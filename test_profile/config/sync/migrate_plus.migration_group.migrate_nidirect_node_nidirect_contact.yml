@@ -1,0 +1,12 @@
+uuid: 5d5d771c-738f-4599-b006-936998f430ef
+langcode: en
+status: true
+dependencies: {  }
+id: migrate_nidirect_node_nidirect_contact
+label: 'NIDirect - NIDirect Contact nodes'
+description: 'Drupal 7 NIDirect Contact nodes'
+source_type: 'Drupal 7'
+module: null
+shared_configuration:
+  source:
+    key: drupal7db

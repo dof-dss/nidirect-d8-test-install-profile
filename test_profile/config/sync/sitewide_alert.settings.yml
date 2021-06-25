@@ -1,9 +1,5 @@
 show_on_admin: 0
-alert_styles: |
-  standard|Blue - standard alert
-  warning|Orange - warning alert
-  call-to-action|Green - call-to-action alert
-  operation-shamrock|Black - Operation Shamrock / London Bridge
+alert_styles: "standard|Blue - standard alert\nwarning|Orange - warning alert\ncall-to-action|Green - call-to-action alert\noperation-shamrock|Black - Operation Shamrock / London Bridge\n"
 refresh_interval: '15'
 _core:
   default_config_hash: YEjSLd1HQIdOiDkPxqaz7CqyvZrtIEUc3brlRw2RxWM

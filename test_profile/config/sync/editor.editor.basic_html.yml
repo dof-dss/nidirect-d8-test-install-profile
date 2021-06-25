@@ -64,12 +64,7 @@ settings:
     language:
       language_list: un
     stylescombo:
-      styles: |
-        p.info-notice|Information notice
-        ul.split-list|Split bulleted list
-        ol.split-list|Split numbered list
-        table.table-fixed-width|Equal table columns
-        p.call-to-action|Big green button
+      styles: "p.info-notice|Information notice\nul.split-list|Split bulleted list\nol.split-list|Split numbered list\ntable.table-fixed-width|Equal table columns\na.btn--call-to-action|Big green button\n"
     tokenbrowser:
       token_types: {  }
 image_upload:

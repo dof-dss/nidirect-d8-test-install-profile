@@ -20,13 +20,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: |
-      <front>
-      /node/*
-      /taxonomy/term/*
-      /publications*
-      /services/gp-practices*
-      /services/health-conditions-a-z*
-      /services/driving-instructors
+    pages: "<front>\n/node/*\n/taxonomy/term/*\n/publications*\n/services/gp-practices*\n/services/health-conditions-a-z*\n/services/driving-instructors\n"
     negate: true
     context_mapping: {  }

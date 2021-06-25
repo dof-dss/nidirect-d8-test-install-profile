@@ -20,13 +20,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: |
-      <front>
-      /publications
-      /publications/date/*
-      /publications/topic/*
-      /services/gp-practices
-      /services/health-conditions-a-z*
-      /services/driving-instructors
+    pages: "<front>\n/publications\n/publications/date/*\n/publications/topic/*\n/services/gp-practices\n/services/health-conditions-a-z*\n/services/driving-instructors\n"
     negate: false
     context_mapping: {  }

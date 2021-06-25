@@ -1,0 +1,12 @@
+uuid: 26b8b92e-52b2-4178-955c-6dd6ce7a3f94
+langcode: en
+status: true
+dependencies: {  }
+id: migrate_drupal_7_taxo
+label: 'NIDirect - Taxonomy'
+description: 'Drupal 7 taxonomies and terms'
+source_type: 'Drupal 7'
+module: null
+shared_configuration:
+  source:
+    key: drupal7db

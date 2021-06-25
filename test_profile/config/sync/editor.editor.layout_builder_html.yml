@@ -49,10 +49,7 @@ settings:
             - Maximize
   plugins:
     stylescombo:
-      styles: |
-        p.large-text|Large text
-        p.xl-text|Extra large text
-        a.btn--call-to-action|Big green button
+      styles: "p.large-text|Large text\np.xl-text|Extra large text\na.btn--call-to-action|Big green button\n"
     drupallink:
       linkit_enabled: true
       linkit_profile: default

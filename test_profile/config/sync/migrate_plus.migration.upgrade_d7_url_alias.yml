@@ -1,0 +1,64 @@
+uuid: db43a594-ebee-427c-a164-31b52ad56062
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_url_alias
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+  - Content
+  - NIDirect
+migration_group: migrate_drupal_7_link
+label: 'URL aliases'
+source:
+  plugin: d7_url_alias
+  batch_size: 1000
+  constants:
+    slash: /
+process:
+  source:
+    -
+      plugin: skip_on_value
+      source: source
+      method: row
+      value:
+        - node/13638
+        - node/13639
+        - node/13640
+        - node/13641
+        - node/13642
+    -
+      plugin: concat
+      source:
+        - constants/slash
+        - source
+  alias:
+    -
+      plugin: concat
+      source:
+        - constants/slash
+        - alias
+  langcode:
+    -
+      plugin: get
+      source: language
+  node_translation:
+    -
+      plugin: explode
+      source: source
+      delimiter: /
+    -
+      plugin: extract
+      default: INVALID_NID
+      index:
+        - 1
+    -
+      plugin: migration_lookup
+      migration: {  }
+destination:
+  plugin: url_alias
+migration_dependencies:
+  required: {  }
+  optional: {  }

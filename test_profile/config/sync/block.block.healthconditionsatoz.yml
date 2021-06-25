@@ -21,8 +21,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: |
-      /services/health-conditions-a-z
-      /services/health-conditions-a-z*
+    pages: "/services/health-conditions-a-z\n/services/health-conditions-a-z*\n"
     negate: false
     context_mapping: {  }
