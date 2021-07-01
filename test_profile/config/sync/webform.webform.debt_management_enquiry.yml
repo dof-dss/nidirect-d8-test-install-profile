@@ -12,7 +12,7 @@ id: debt_management_enquiry
 title: 'Debt Management enquiry'
 description: ''
 category: ''
-elements: "your_details:\n  '#type': fieldset\n  '#title': 'Your details'\n  full_name:\n    '#type': textfield\n    '#title': 'Full name'\n    '#maxlength': '100'\n    '#required': true\n  are_you_the_customer_:\n    '#type': radios\n    '#title': 'Are you the customer?'\n    '#options':\n      'yes': 'Yes'\n      'no': 'No'\n    '#options_display': side_by_side\n    '#required': true\n    '#required_error': 'You must choose an option.'\n  what_is_the_customer_s_full_name_:\n    '#type': textfield\n    '#title': 'What is the customer''s full name?'\n    '#maxlength': '100'\n    '#states':\n      visible:\n        ':input[name=\"are_you_the_customer_\"]':\n          value: 'no'\n    '#required': true\n  what_is_your_relationship_to_the_customer_:\n    '#type': textfield\n    '#title': 'What is your relationship to the customer?'\n    '#description': 'Please note, Debt Management will only respond to your query if we hold the respective customer consent for you to act on their behalf or if you are a Next of Kin dealing with deceased affairs.'\n    '#description_display': before\n    '#states':\n      visible:\n        ':input[name=\"are_you_the_customer_\"]':\n          value: 'no'\n    '#required': true\n  debt_reference_number:\n    '#type': textfield\n    '#title': 'Debt reference number'\n    '#description': '<p>This may be found on a letter from Debt Management</p>'\n    '#description_display': before\n    '#maxlength': 10\n    '#size': 11\n    '#autocomplete': 'off'\ncontact_details:\n  '#type': fieldset\n  '#title': 'Contact details'\n  address:\n    '#type': textarea\n    '#title': Address\n    '#maxlength': '500'\n    '#required': true\n  postcode:\n    '#type': textfield\n    '#title': Postcode\n    '#maxlength': '8'\n    '#pattern': '([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9][A-Za-z]?))))\\s?[0-9][A-Za-z]{2})'\n    '#pattern_error': 'Please enter a valid UK postcode'\n  contact_telephone_number:\n    '#type': textfield\n    '#title': 'Contact telephone number'\n    '#maxlength': 20\n    '#required': true\n    '#pattern': '^[\\+0-9\\s\\-\\(\\)]+$'\n    '#pattern_error': 'Enter a valid telephone number'\n  mobile_number:\n    '#type': textfield\n    '#title': 'Mobile number (if different)'\n    '#maxlength': 20\n    '#pattern': '^[\\+0-9\\s\\-\\(\\)]+$'\n    '#pattern_error': 'Enter a valid mobile number'\n  email_address:\n    '#type': email\n    '#title': 'Email address'\n    '#maxlength': '255'\n    '#required': true\nenquiry_details:\n  '#type': fieldset\n  '#title': 'Enquiry details'\n  what_is_you_query_about_:\n    '#type': webform_select_other\n    '#title': 'What is your query about?'\n    '#options':\n      loan_management: 'Loan management'\n      overpayment_recovery: 'Overpayment recovery'\n      recovery_from_estates: 'Recovery from estates'\n      civil_proceedings: 'Civil proceedings'\n      making_a_payment: 'Making a payment'\n      third_party_deductions: 'Third party deductions'\n      complaint: Complaint\n      compensation_recovery_scheme: 'Compensation Recovery Scheme'\n      discretionary_support_social_fund: 'Discretionary Support / Social Fund'\n      welfare_supplementary_payment: 'Welfare Supplementary Payment'\n    '#empty_option': '- Please select - '\n    '#other__option_label': 'Other (please specify)'\n    '#other__title': 'Please briefly specify the subject of your query'\n    '#other__placeholder': ''\n    '#required': true\n    '#wrapper_type': form_element\n  please_tell_us_your_query:\n    '#type': textarea\n    '#title': 'Please tell us your query'\n    '#description': 'Please give us as much information as you can as this will help us to get back to to you as soon as possible. DO NOT include personal or financial information such as date of birth, National Insurance number, or bank and credit card details.'\n    '#description_display': before\n    '#maxlength': 3000\n    '#required': true\n    '#pattern': '^(?!.*<[^>]+>).*'\n    '#pattern_error': 'HTML or markup is not permitted.'\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': 'Submit enquiry'\n"
+elements: "your_details:\n  '#type': fieldset\n  '#title': 'Your details'\n  full_name:\n    '#type': textfield\n    '#title': 'Full name'\n    '#maxlength': '100'\n    '#required': true\n  are_you_the_customer_:\n    '#type': radios\n    '#title': 'Are you the customer?'\n    '#options':\n      'yes': 'Yes'\n      'no': 'No'\n    '#options_display': side_by_side\n    '#required': true\n    '#required_error': 'You must choose an option.'\n  what_is_the_customer_s_full_name_:\n    '#type': textfield\n    '#title': 'What is the customer''s full name?'\n    '#maxlength': '100'\n    '#states':\n      visible:\n        ':input[name=\"are_you_the_customer_\"]':\n          value: 'no'\n    '#required': true\n  what_is_your_relationship_to_the_customer_:\n    '#type': textfield\n    '#title': 'What is your relationship to the customer?'\n    '#description': 'Please note, Debt Management will only respond to your query if we hold the respective customer consent for you to act on their behalf or if you are a Next of Kin dealing with deceased affairs.'\n    '#description_display': before\n    '#states':\n      visible:\n        ':input[name=\"are_you_the_customer_\"]':\n          value: 'no'\n    '#required': true\n  debt_reference_number:\n    '#type': textfield\n    '#title': 'Debt reference number'\n    '#description': '<p>This may be found on a letter from Debt Management</p>'\n    '#description_display': before\n    '#maxlength': 10\n    '#size': 11\n    '#autocomplete': 'off'\ncontact_details:\n  '#type': fieldset\n  '#title': 'Contact details'\n  address:\n    '#type': textarea\n    '#title': Address\n    '#maxlength': '500'\n    '#required': true\n  postcode:\n    '#type': textfield\n    '#title': Postcode\n    '#maxlength': '8'\n    '#pattern': '([Gg][Ii][Rr] 0[Aa]{2})|((([A-Za-z][0-9]{1,2})|(([A-Za-z][A-Ha-hJ-Yj-y][0-9]{1,2})|(([A-Za-z][0-9][A-Za-z])|([A-Za-z][A-Ha-hJ-Yj-y][0-9][A-Za-z]?))))\\s?[0-9][A-Za-z]{2})'\n    '#pattern_error': 'Please enter a valid UK postcode'\n  contact_telephone_number:\n    '#type': textfield\n    '#title': 'Contact telephone number'\n    '#maxlength': 20\n    '#required': true\n    '#pattern': '^[\\+0-9\\s\\-\\(\\)]+$'\n    '#pattern_error': 'Enter a valid telephone number'\n  mobile_number:\n    '#type': textfield\n    '#title': 'Mobile number (if different)'\n    '#maxlength': 20\n    '#pattern': '^[\\+0-9\\s\\-\\(\\)]+$'\n    '#pattern_error': 'Enter a valid mobile number'\n  email_address:\n    '#type': email\n    '#title': 'Email address'\n    '#maxlength': 255\n    '#required': true\n    '#pattern': '[^@\\s]+@[^@\\s]+\\.[^@\\s]+'\n    '#pattern_error': 'You must enter a valid email address, for example, name@example.com'\nenquiry_details:\n  '#type': fieldset\n  '#title': 'Enquiry details'\n  what_is_you_query_about_:\n    '#type': webform_select_other\n    '#title': 'What is your query about?'\n    '#options':\n      loan_management: 'Loan management'\n      overpayment_recovery: 'Overpayment recovery'\n      recovery_from_estates: 'Recovery from estates'\n      civil_proceedings: 'Civil proceedings'\n      making_a_payment: 'Making a payment'\n      third_party_deductions: 'Third party deductions'\n      complaint: Complaint\n      compensation_recovery_scheme: 'Compensation Recovery Scheme'\n      discretionary_support_social_fund: 'Discretionary Support / Social Fund'\n      welfare_supplementary_payment: 'Welfare Supplementary Payment'\n    '#empty_option': '- Please select - '\n    '#other__option_label': 'Other (please specify)'\n    '#other__title': 'Please briefly specify the subject of your query'\n    '#other__placeholder': ''\n    '#required': true\n    '#wrapper_type': form_element\n  please_tell_us_your_query:\n    '#type': textarea\n    '#title': 'Please tell us your query'\n    '#description': 'Please give us as much information as you can as this will help us to get back to to you as soon as possible. DO NOT include personal or financial information such as date of birth, National Insurance number, or bank and credit card details.'\n    '#description_display': before\n    '#maxlength': 3000\n    '#required': true\n    '#pattern': '^(?!.*<[^>]+>).*'\n    '#pattern_error': 'HTML or markup is not permitted.'\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': 'Submit enquiry'\n"
 css: ''
 javascript: ''
 settings:
@@ -25,7 +25,7 @@ settings:
   page_submit_path: ''
   page_confirm_path: ''
   page_admin_theme: false
-  form_title: both
+  form_title: source_entity_webform
   form_submit_once: false
   form_exception_message: ''
   form_open_message: ''
@@ -74,7 +74,7 @@ settings:
   autofill: false
   autofill_message: ''
   autofill_excluded_elements: {  }
-  wizard_progress_bar: true
+  wizard_progress_bar: false
   wizard_progress_pages: false
   wizard_progress_percentage: false
   wizard_progress_link: false
@@ -84,10 +84,10 @@ settings:
   wizard_confirmation: true
   wizard_confirmation_label: ''
   wizard_track: ''
-  preview: 0
+  preview: 2
   preview_label: ''
   preview_title: ''
-  preview_message: ''
+  preview_message: 'Before sending information, check the information is accurate.'
   preview_attributes: {  }
   preview_excluded_elements: {  }
   preview_exclude_empty: true
@@ -101,7 +101,7 @@ settings:
   draft_pending_multiple_message: ''
   confirmation_type: page
   confirmation_title: ''
-  confirmation_message: 'Thank you for your enquiry. We aim to respond to you within 2 working days.'
+  confirmation_message: "<p class=\"info-notice info-notice--success\">\n  Thank you for your enquiry. We aim to respond to you within 2 working days.\n</p>\n"
   confirmation_url: ''
   confirmation_attributes: {  }
   confirmation_back: false
@@ -124,9 +124,28 @@ settings:
   entity_limit_user_interval: null
   purge: none
   purge_days: null
-  results_disabled: false
+  results_disabled: true
   results_disabled_ignore: false
   token_update: false
+  page_theme_name: ''
+  form_disable_remote_addr: false
+  share: false
+  share_node: false
+  share_theme_name: ''
+  share_title: true
+  share_page_body_attributes: {  }
+  wizard_auto_forward: true
+  wizard_auto_forward_hide_next_button: false
+  wizard_keyboard: true
+  wizard_prev_button_label: ''
+  wizard_next_button_label: ''
+  wizard_toggle: true
+  wizard_toggle_show_label: ''
+  wizard_toggle_hide_label: ''
+  results_customize: false
+  token_view: false
+  token_delete: false
+  serial_disabled: false
 access:
   create:
     roles:

@@ -12,7 +12,7 @@ id: proni_submit_an_enquiry
 title: 'PRONI - Submit an Enquiry'
 description: ''
 category: ''
-elements: "your_query:\n  '#type': fieldset\n  '#title': 'Your query'\n  textarea_query:\n    '#type': textarea\n    '#title': 'Please enter your query'\n    '#placeholder': 'Plain text only (3,000 characters maximum)'\n    '#required': true\n    '#required_error': 'You must fill in this field'\n    '#pattern': '^(?!.*<[^>]+>).*'\n    '#pattern_error': 'HTML or markup is not permitted.'\n    '#counter_type': character\n    '#counter_maximum': 3000\nyour_details:\n  '#type': fieldset\n  '#title': 'Your details'\n  first_name:\n    '#type': textfield\n    '#title': 'First name'\n    '#required': true\n    '#required_error': 'You must fill in this field'\n    '#counter_type': character\n    '#counter_maximum': '100'\n  last_name:\n    '#type': textfield\n    '#title': 'Last name'\n    '#required': true\n    '#required_error': 'You must fill in this field'\n    '#counter_type': character\n    '#counter_maximum': '100'\n  email:\n    '#type': email\n    '#title': Email\n    '#required': true\n    '#required_error': 'You must fill in this field'\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': 'Submit enquiry'\n"
+elements: "your_query:\n  '#type': fieldset\n  '#title': 'Your query'\n  textarea_query:\n    '#type': textarea\n    '#title': 'Please enter your query'\n    '#placeholder': 'Plain text only (3,000 characters maximum)'\n    '#required': true\n    '#required_error': 'You must fill in this field'\n    '#pattern': '^(?!.*<[^>]+>).*'\n    '#pattern_error': 'HTML or markup is not permitted.'\n    '#counter_type': character\n    '#counter_maximum': 3000\nyour_details:\n  '#type': fieldset\n  '#title': 'Your details'\n  first_name:\n    '#type': textfield\n    '#title': 'First name'\n    '#required': true\n    '#required_error': 'You must fill in this field'\n    '#counter_type': character\n    '#counter_maximum': '100'\n  last_name:\n    '#type': textfield\n    '#title': 'Last name'\n    '#required': true\n    '#required_error': 'You must fill in this field'\n    '#counter_type': character\n    '#counter_maximum': '100'\n  email:\n    '#type': email\n    '#title': Email\n    '#required': true\n    '#required_error': 'You must fill in this field'\n    '#pattern': '[^@\\s]+@[^@\\s]+\\.[^@\\s]+'\n    '#pattern_error': 'You must enter a valid email address, for example, name@example.com'\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': 'Submit enquiry'\n"
 css: ''
 javascript: ''
 settings:
@@ -103,7 +103,7 @@ settings:
   draft_pending_multiple_message: ''
   confirmation_type: page
   confirmation_title: 'Thank you'
-  confirmation_message: '<p>We aim to get back to you within 10 to 14 working days with a response or update on your enquiry.</p>'
+  confirmation_message: '<p class="info-notice info-notice--success">We aim to get back to you within 10 to 14 working days with a response or update on your enquiry.</p>'
   confirmation_url: ''
   confirmation_attributes: {  }
   confirmation_back: true
@@ -126,9 +126,28 @@ settings:
   entity_limit_user_interval: null
   purge: none
   purge_days: null
-  results_disabled: false
+  results_disabled: true
   results_disabled_ignore: false
   token_update: false
+  page_theme_name: ''
+  form_disable_remote_addr: false
+  share: false
+  share_node: false
+  share_theme_name: ''
+  share_title: true
+  share_page_body_attributes: {  }
+  wizard_auto_forward: true
+  wizard_auto_forward_hide_next_button: false
+  wizard_keyboard: true
+  wizard_prev_button_label: ''
+  wizard_next_button_label: ''
+  wizard_toggle: false
+  wizard_toggle_show_label: ''
+  wizard_toggle_hide_label: ''
+  results_customize: false
+  token_view: false
+  token_delete: false
+  serial_disabled: false
 access:
   create:
     roles:

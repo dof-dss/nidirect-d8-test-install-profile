@@ -194,7 +194,7 @@ handlers:
     label: Email
     notes: ''
     handler_id: email
-    status: false
+    status: true
     conditions: {  }
     weight: 0
     settings:
@@ -231,7 +231,7 @@ handlers:
     label: 'Auto reply'
     notes: ''
     handler_id: auto_reply
-    status: false
+    status: true
     conditions: {  }
     weight: 0
     settings:
