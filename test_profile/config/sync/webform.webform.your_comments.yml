@@ -210,12 +210,12 @@ handlers:
       from_options: {  }
       from_name: 'nidirect visitor'
       subject: 'Page feedback'
-      body: "Page feedback for: [webform_submission:values:your_feedback:page_url] ==Submitted values==<br />\n<br />\n[webform_submission:values]<br />\n--------------------------------------------------------------------------------------------- Submitted: [webform_submission:completed:long]\n"
+      body: "Submitted on [webform_submission:created]\n\nSubmitted values are:\n[webform_submission:values]\n"
       excluded_elements: {  }
       ignore_access: false
       exclude_empty: true
       exclude_empty_checkbox: false
-      html: true
+      html: false
       attachments: false
       twig: false
       debug: false
@@ -232,7 +232,12 @@ handlers:
     notes: ''
     handler_id: auto_reply
     status: true
-    conditions: {  }
+    conditions:
+      enabled:
+        ':input[name="do_you_want_a_reply_options"]':
+          value: 'Yes'
+        ':input[name="enter_a_valid_email_address"]':
+          filled: true
     weight: 0
     settings:
       states:
@@ -247,8 +252,9 @@ handlers:
       from_options: {  }
       from_name: NIDirect
       subject: 'Thank you for your feedback on nidirect.gov.uk'
-      body: "Thank you for your feedback on [webform_submission:values:your_feedback:page_url].\n\nYour feedback:\n--------------------------------------------------------------------\n[webform_submission:values:your_feedback:comment_details][webform_submission:values:your_feedback:question_details]\n--------------------------------------------------------------------\n\nWe aim to get back to you within 10 working days.\_\nAll responses will usually be sent out Monday to Friday, 9.00 am to 5.00 pm (excluding public and bank holidays).\n\nThis is an automated email message. Please do not reply to this email as we do not have access to emails sent to noreply@nidirect.gov.uk.\n"
-      excluded_elements: {  }
+      body: "Thank you for your feedback.<br />\n<br />\nWe aim to get back to you within 10 working days.&nbsp; All responses will usually be sent out Monday to Friday, 9.00 am to 5.00 pm (excluding public and bank holidays). This is an automated email message. Please do not reply to this email as we do not have access to emails sent to noreply@nidirect.gov.uk.\n"
+      excluded_elements:
+        page_url: page_url
       ignore_access: false
       exclude_empty: true
       exclude_empty_checkbox: false
